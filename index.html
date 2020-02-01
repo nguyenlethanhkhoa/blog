@@ -10,37 +10,32 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="assets/styles/nav-side-menu.css" rel="stylesheet">
+    <link href="assets/styles/styles.css" rel="stylesheet">
 
     <title>Blog - Khoa Nguyen</title>
 </head>
 
 <body>
 
-    <div class="row">
-        <div class="col-sm-3">
-            <div class="nav-side-menu">
-                <div class="brand">Brand Logo</div>
-                <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-                <div class="menu-list">
-                    <ul id="menu-content" class="menu-content collapse out">
-                        <li data-toggle="collapse" data-target="#framework-from-scratch" class="collapsed active">
-                            <a href="#"></i>Framework from scratch<span class="arrow"></span></a>
-                        </li>
-                        <ul class="sub-menu collapse" id="framework-from-scratch">
-                            <li class="active"><a
-                                    href="#pages/framework-from-scratch/introduction.html">Introduction</a></li>
-                            <li class="active"><a href="#">Front Controller</a></li>
-                            <li class="active"><a href="#">Routing</a></li>
-                            <li class="active"><a href="#">Controller Resolver</a></li>
-                        </ul>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-9">
-            <div class="content"></div>
+    <div class="nav-side-menu">
+        <div class="brand">Brand Logo</div>
+        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+        <div class="menu-list">
+            <ul id="menu-content" class="menu-content collapse out">
+                <li data-toggle="collapse" data-target="#framework-from-scratch" class="collapsed active">
+                    <a href="#"></i>Framework from scratch<span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="framework-from-scratch">
+                    <li class="active"><a href="#pages/framework-from-scratch/introduction.html">Introduction</a></li>
+                    <li class="active"><a href="#">Front Controller</a></li>
+                    <li class="active"><a href="#">Routing</a></li>
+                    <li class="active"><a href="#">Controller Resolver</a></li>
+                </ul>
+            </ul>
         </div>
     </div>
+
+    <div class="content"></div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -54,7 +49,7 @@
     <script src="assets/scripts/app.js"></script>
 
     <script>
-        $('document').ready(function() {
+        $('document').ready(function () {
             app.init();
         });
     </script>

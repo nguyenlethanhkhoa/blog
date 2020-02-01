@@ -1,0 +1,8 @@
+.content {
+    position: fixed;
+    top: 0;
+    left: 240px;
+    right: 0;
+    bottom: 0;
+    margin: 25px 50px;
+}
