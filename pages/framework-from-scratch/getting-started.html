@@ -1,0 +1,49 @@
+<h3>Before we started</h3>
+<p>Init project and install Typescript, Typescript Node, Typescript definitions for Express(@types/express)
+    and
+    Express</p>
+<pre>
+    cd ../your-project-dir
+    npm init
+    npm install -s @types/express express
+</pre>
+<p>Install nodemon for monitoring any changes in your application(auto restart the server when any code
+    changes). <strong>This step is optional</strong></p>
+<pre>
+    npm install -s nodemon
+</pre>
+<p>Configure the Typescript configuration file</p>
+<pre>
+    {
+        "compilerOptions": {
+            "module": "commonjs",
+            "moduleResolution": "node",
+            "pretty": true,
+            "sourceMap": true,
+            "target": "es6",
+            "outDir": "./dist",
+            "baseUrl": "./lib"
+        },
+        "include": [
+            "lib/**/*.ts"
+        ],
+        "exclude": [
+            "node_modules"
+        ]
+    }
+</pre>
+<p>Edit running scripts in package.json</p>
+<pre>
+    "scripts": {
+        "build": "tsc",
+        "dev": "ts-node ./lib/server.ts",        
+        "start": "nodemon ./dist/server.js",
+        "prod": "npm run build && npm run start"
+    }
+</pre>
+<h3>Planning</h3>
+<p>When we go somewhere, we need a map. This is the same in this case, we need a plan to make the framework
+    done
+    or at least know when we can stop.</p>
+<p>Because ExpressJs has enough components to become a Full-stack Web Framework. My job is only to make a
+    reusable MVC template of Express with Typescript to strongly separate Model - View -Controller.</p>

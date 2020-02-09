@@ -1,0 +1,26 @@
+<p>Từ lâu, JavaScript đã được phát triển mà không quan tâm đến vấn đề tương thích. Qua nhiều đợt update, những tính năng
+    mới liên tục được thêm vào trong khi tính năng cũ không được thay đổi hay xóa đi. Do đó, những dòng code bug, hay
+    những thiết kế không còn phù hợp nữa vẫn tồn tại.</p>
+<br>
+<p>Và cho đến 2009 với sự xuất hiện của ECMAScript 5 (ES5). Những nhà phát triển đã thêm vào những tính năng mới nhưng
+    đồng thời cũng chỉnh sửa một vài tính năng cũ. Để những ứng dụng đã được phát triển trước ES5 vẫn hoạt động bình
+    thường, mặc định sẽ tắt những thay đổi trên những tính năng cũ. Và bất cứ khi nào bạn cần đến những thay đổi đó, hãy
+    enable nó lên bằng <strong>'use strict'</strong>.</p>
+<br>
+<p>Những thay đổi sẽ được áp dụng khi bạn khai báo <strong>'use strict'</strong> ở đầu file hoặc mở đầu một function bất kỳ.</p>
+<br>
+<p>Đối với Browser Console, bạn phải dùng Shift + Enter để nhập dạng multiple lines và đặt <strong>'use strict'</strong> ở trên cùng.</p>
+<pre>
+    'use strict'; /* Shift+Enter for a newline */
+    //  ...your code
+    /* Enter to run */
+</pre>
+<br>
+<p>Nếu không thành công, bạn có thể dùng cách sau</p>
+<pre>
+    (function() {
+        'use strict';
+      
+        // ...your code...
+    })()
+</pre>

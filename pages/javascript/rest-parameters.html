@@ -1,0 +1,38 @@
+<h3>Rest Parameters</h3>
+<p>
+    Trong quá trình làm việc với JavaScript, không ít lần bạn gặp những hàm có số lượng tham số tùy ý như
+    <strong>Math.max(arg1, arg2, ..., argN)</strong> hoặc <strong>Object.assign(dest, src1, ..., srcN)</strong>. Những tham số trên được gọi là <strong>Rest Parameters</strong> Vậy làm thế nào để define một function có tham số như thế ?
+</p>
+<p>Thực ra, trong JavaScript, chúng ta có thể gọi function với số lượng tham số tùy ý mà không gây ra lỗi.</p>
+<pre>
+    function sum(a, b) {
+        return a + b;
+    }
+      
+    sum(1, 2, 3, 4, 5);
+</pre>
+<p>Như ví dụ trên, chúng ta có thể truyền đến 5 tham số nhưng hàm sum chỉ nhận và dùng 2 tham số đầu tiên.</p>
+<p>Để define <strong>Rest Parameters</strong>, chỉ cần đặt dấu <strong>...</strong> trước tên tham số.</p>
+<pre>
+    function sumAll(...args) { // args is the name for the array
+        let sum = 0;
+      
+        for (let arg of args) sum += arg;
+      
+        return sum;
+    }
+</pre>
+<p>Trong trường hợp có nhiều tham số thì nên khai báo <strong>Rest Parameters</strong> sau cùng.</p>
+<h3>Spread Syntax</h3>
+<p>Khi đã define một <strong>Rest Parameters</strong>, vậy làm thế nào để truyền array vào <strong>Rest Parameters</strong>?</p>
+<pre>
+    let arr = [3, 5, 1];
+
+    alert( Math.max(arr) ); // NaN
+</pre>
+<p>Thay vì phải lặp qua từng phần tử của mảng và truyền vào Rest Parameters thì JavaScript đã hỗ trợ chúng ta một cách ngắn gọn hơn.</p>
+<pre>
+    let arr = [3, 5, 1];
+
+    alert( Math.max(...arr) ); // 5 (spread turns array into a list of arguments)
+</pre>

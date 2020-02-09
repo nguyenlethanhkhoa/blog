@@ -1,0 +1,53 @@
+<h3>Copy object</h3>
+<p>
+    Một trong những điểm khác biệt cơ bản giữa Object và Primitive (kiểu dữ liệu nguyên thủy) là Object được copy và lưu
+    trữ dưới dạng tham chiếu (reference).
+</p>
+<p>Với Primitive:</p>
+<pre>
+    let message = "Hello!";
+    let phrase = message;
+</pre>
+<p>Lúc này, ta sẽ có 2 variable hoàn toàn độc lập với nhau và mỗi variable chứa giá trị như nhau là "Hello!"</p>
+<img src="/blog/assets/imgs/variable-copy-value.svg">
+<p>Đối với Object, biến chỉ có thể lưu tham chiếu của Object đó hay nói cách khác là lưu địa chỉ của Object trong bộ
+    nhớ.</p>
+<pre>
+    let user = {
+        name: "John"
+    };
+</pre>
+<img src="/blog/assets/imgs/variable-contains-reference.svg">
+<p>Khi biến user được copy:</p>
+<pre>
+    let user = { name: "John" };
+
+    let admin = user; // copy the reference
+</pre>
+<img src="/blog/assets/imgs/variable-copy-reference.svg">
+<pre>
+    let user = { name: 'John' };
+
+    let admin = user;
+
+    admin.name = 'Pete'; // changed by the "admin" reference
+
+    alert(user.name); // 'Pete'
+</pre>
+<br>
+<br>
+<h3>Cloning và Merging Object</h3>
+<p>Vậy làm thế nào để ta có thể tạo một bản copy hoàn toàn độc lập từ một Object ?</p>
+<p>
+    Trên thực tế, JavaScript không hỗ trợ điều này. Trong trường hợp bạn thực sự cần phải làm như vậy, bạn có thể lặp qua
+    từng property của Object và copy chúng dưới dạng Primitive.
+</p>
+<p>
+    Rất may là JavaScript đã hỗ trợ chúng ta làm điều phức tạp trên thông qua hàm
+    <strong>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">Object.assign(dest,
+            [src1, src2, src3...])</a>
+    </strong>
+</p>
+<p>Method <strong>Object.assign</strong> sẽ copy tất cả property của src1, scr2, ... vào dest.</p>
+<p>Nhưng nếu property của src1, scr2 hoặc scr3 là Object thì <strong>Object.assign</strong> chỉ có thể copy được tham chiếu của Object đó.</p>

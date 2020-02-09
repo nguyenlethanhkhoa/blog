@@ -7,9 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="assets/styles/nav-side-menu.css" rel="stylesheet">
+    <link href="assets/styles/trackpad-scroll-emulator.css" rel="stylesheet" />
     <link href="assets/styles/styles.css" rel="stylesheet">
 
     <title>Blog - Khoa Nguyen</title>
@@ -18,24 +19,42 @@
 <body>
 
     <div class="nav-side-menu">
-        <div class="brand">Brand Logo</div>
+        <div class="brand">Khoa Nguyen</div>
         <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
         <div class="menu-list">
             <ul id="menu-content" class="menu-content collapse out">
-                <li data-toggle="collapse" data-target="#framework-from-scratch" class="collapsed active">
+                <!-- <li data-toggle="collapse" data-target="#framework-from-scratch" class="collapsed active">
                     <a href="#"></i>Framework from scratch<span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="framework-from-scratch">
-                    <li class="active"><a href="#pages/framework-from-scratch/introduction.html">Introduction</a></li>
-                    <li class="active"><a href="#">Front Controller</a></li>
-                    <li class="active"><a href="#">Routing</a></li>
-                    <li class="active"><a href="#">Controller Resolver</a></li>
+                    <li><a href="#pages/framework-from-scratch/introduction.html">Introduction</a></li>
+                    <li><a href="#pages/framework-from-scratch/getting-started.html">Getting Started</a></li>
+                    <li><a href="#pages/framework-from-scratch/front-controller.html">Front Controller</a></li>
+                    <li><a href="#pages/framework-from-scratch/routing.html">Routing</a></li>
+                    <li><a href="#pages/framework-from-scratch/controller-resolver.html">Controller Resolver</a></li>
+                </ul> -->
+                <li data-toggle="collapse" data-target="#javascript" class="collapsed active">
+                    <a href="#"></i>Javascript<span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="javascript">
+                    <li><a href="#pages/javascript/strict-mode-in-javascript.html">Strict mode in JavaScript</a></li>
+                    <li><a href="#pages/javascript/copy-object.html">Copy Object</a></li>
+                    <li><a href="#pages/javascript/rest-parameters.html">Rest Parameters</a></li>
                 </ul>
             </ul>
         </div>
     </div>
-
-    <div class="content"></div>
+    <div class="content-container scrollable">
+        <div class="content-wrapper">
+            <div class="tse-scrollable">
+                <div class="tse-content">
+                    <div class="content">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -45,6 +64,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <script src="assets/scripts/jquery.trackpad-scroll-emulator.min.js"></script>
 
     <script src="assets/scripts/app.js"></script>
 
