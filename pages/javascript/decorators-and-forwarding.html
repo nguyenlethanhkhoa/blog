@@ -1,0 +1,42 @@
+<h3>Transparent Caching</h3>
+<p>
+	Hãy tưởng tượng bạn có một function khi chạy chiếm rất nhiều tài nguyên của CPU nhưng nếu input không đổi thì output sẽ không thay đổi. Nếu như hàm đó được gọi thường xuyên, bạn nên lưu output vào
+	cache.
+</p>
+<p>
+	Nhưng thay vì implement cache trong chính function đó, chúng ta có thể tạo một wrapper xử lý việc cache input và output. Việc tạo wrapper sẽ giúp ta tách business logic của function và việc cache
+	riêng biệt với nhau.
+</p>
+<pre>
+    function slow(x) {
+        // there can be a heavy CPU-intensive job here
+        alert(`Called with ${x}`);
+        return x;
+    }
+    
+    function cachingDecorator(func) {
+        let cache = new Map();
+        
+        return function(x) {
+            if (cache.has(x)) { // if there's such key in cache
+                return cache.get(x); // read the result from it
+            }
+        
+            let result = func(x); // otherwise call func
+        
+            cache.set(x, result); // and cache (remember) the result
+            return result;
+        };
+    }
+    
+    slow = cachingDecorator(slow);
+    
+    alert( slow(1) ); // slow(1) is cached
+    alert( "Again: " + slow(1) ); // the same
+    
+    alert( slow(2) ); // slow(2) is cached
+    alert( "Again: " + slow(2) ); // the same as the previous line
+</pre>
+<p>Trong ví dụ trên, <strong>cachingDecorator</strong> là một <strong>Decorator</strong><i>(a special function that takes another function and alters its behavior)</i>.</p>
+<p>Với việc apply <strong>Decorator</strong>, chúng ta có thể dùng <strong>cachingDecorator</strong> cho bất kỳ function nào.</p>
+<img src="/blog/assets/imgs/decorator-makecaching-wrapper.svg" />

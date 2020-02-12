@@ -1,0 +1,64 @@
+<p>Khi chúng ta dùng object method làm một callback, ví dụ như là hàm <strong>setTimeout</strong>, chúng ta sẽ gặp một vấn đề, mất keyword <strong>this</strong>.</p>
+<pre>
+    let user = {
+        firstName: "John",
+        sayHi() {
+            alert(`Hello, ${this.firstName}!`);
+        }
+    };
+    
+    setTimeout(user.sayHi, 1000); // Hello, undefined!
+</pre>
+<p>
+	Trong đoạn code trên, kết quả chúng ta nhận được sẽ là "Hello, undefined" thay vì là "Hello, John". Điều này xảy ra vì function <strong>setTimeout</strong> nhận được input(callback) là một
+	function <strong>sayHi</strong> tách biệt hoàn toàn với object User. Hay nói cách khác, chúng ta bị mất User Context.
+</p>
+<h3>A Wrapper</h3>
+<p>Cách dễ nhất để chúng ta có thể giải quyết vấn đề này là sử dụng <strong>wrapping function</strong>.</p>
+<pre>
+    let user = {
+        firstName: "John",
+        sayHi() {
+            alert(`Hello, ${this.firstName}!`);
+        }
+    };
+    
+    setTimeout(function() {
+        user.sayHi(); // Hello, John!
+    }, 1000);
+</pre>
+<p>Vì method <strong>sayHi</strong> đang được gọi trực tiếp từ <strong>Object User</strong> nên chúng ta sẽ nhận được kết quả đúng.</p>
+<h3>Function Binding</h3>
+<p>Với việc sử dụng <strong>wrapping function</strong>, chúng ta đã giải quyết được vấn đề trên, nhưng sẽ thế nào nếu biến user bị thay đổi?</p>
+<pre>
+    let user = {
+        firstName: "John",
+        sayHi() {
+            alert(`Hello, ${this.firstName}!`);
+        }
+    };
+
+    user = 1111;
+    
+    setTimeout(function() {
+        user.sayHi(); // TypeError: user.sayHi is not a function
+    }, 1000);
+</pre>
+<p>
+	Để giải quyết vấn đề phát sinh từ việc dùng <strong>wrapping function</strong>, JavaScript đã hỗ trợ chúng ta function
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">bind</a>
+</p>
+<pre>
+    let user = {
+        firstName: "John"
+    };
+    
+    function func(phrase) {
+        alert(phrase + ', ' + this.firstName);
+    }
+    
+    // bind this to user
+    let funcUser = func.bind(user);
+    
+    funcUser("Hello"); // Hello, John (argument "Hello" is passed, and this=user)
+</pre>
