@@ -23,13 +23,27 @@
     }
 </pre>
 <p>Trong trường hợp có nhiều tham số thì nên khai báo <strong>Rest Parameters</strong> sau cùng.</p>
+<pre>
+    function showName(firstName, lastName, ...titles) {
+        alert( firstName + ' ' + lastName ); // Julius Caesar
+      
+        // the rest go into titles array
+        // i.e. titles = ["Consul", "Imperator"]
+        alert( titles[0] ); // Consul
+        alert( titles[1] ); // Imperator
+        alert( titles.length ); // 2
+    }
+      
+    showName("Julius", "Caesar", "Consul", "Imperator");
+</pre>
 <h3>Spread Syntax</h3>
-<p>Khi đã define một <strong>Rest Parameters</strong>, vậy làm thế nào để truyền array vào <strong>Rest Parameters</strong>?</p>
+<p>Chúng ta đã khai báo thành công <strong>Rest Parameters</strong>. Nhưng lại phát sinh một vấn đề khác là chúng ta không thể truyền một array vào <strong>Rest Parameters</strong>.</p>
 <pre>
     let arr = [3, 5, 1];
 
     alert( Math.max(arr) ); // NaN
 </pre>
+<p>Vậy làm thế nào để truyền array vào <strong>Rest Parameters</strong>?</p>
 <p>Thay vì phải lặp qua từng phần tử của mảng và truyền vào Rest Parameters thì JavaScript đã hỗ trợ chúng ta một cách ngắn gọn hơn.</p>
 <pre>
     let arr = [3, 5, 1];
