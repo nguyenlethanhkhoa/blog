@@ -1,14 +1,37 @@
 <h3>JavaScript Engine</h3>
-<p>
-	JavaScript Engine là một chương trình thực thi mã nguồn được viết bằng một phiên bản tiêu chuẩn của ngôn ngữ ECMAScript. Vì ECMAScript (ES) là
-	<strong>đặc tả được tiêu chuẩn hóa</strong>(standardized specification) của JavaScript nên ECMAScript Engine là một tên gọi khác của JavaScript Engine.
-</p>
-<p>Các JavaScript Engine thường được phát triển bởi các nhà cung cấp trình duyệt. Trong trình duyệt, JavaScript Engine chạy phối hợp với Rendering Engine thông qua DOM(Document Object Model).</p>
-<p>
-	Hiện nay, việc sử dụng các JavaScript Engine không còn bị giới hạn ở các trình duyệt. Như <strong>V8</strong> là một JavaScript Engine được phát triển bởi Google, được sử dụng trong trình duyệt
-	Chrome và cả trong Node.js(Runtime System).
-</p>
-<p>V8 Engine gồm 2 component chính:</p>
-<p class="padding-20"><strong>- Memory Heap</strong></p>
-<p class="padding-20"><strong>- Call Stack</strong></p>
-<img src="/blog/assets/imgs/javascript-engine-overview.png" />
+<br />
+<div class="space-40">
+	<p>
+		JavaScript Engine là một chương trình thực thi mã nguồn (Interpreter) được viết bằng một phiên bản tiêu chuẩn của ngôn ngữ ECMAScript. Vì ECMAScript (ES) là đặc tả được tiêu chuẩn
+		hóa(standardized specification) của JavaScript nên ECMAScript Engine là một tên gọi khác của JavaScript Engine.
+	</p>
+	<p>
+		Các JavaScript Engine thường được phát triển bởi các nhà cung cấp trình duyệt. Trong trình duyệt, JavaScript Engine chạy phối hợp với Rendering Engine thông qua DOM(Document Object Model).
+	</p>
+	<p>
+		Hiện nay, việc sử dụng các JavaScript Engine không còn bị giới hạn ở các trình duyệt. Như <strong>V8</strong> là một JavaScript Engine được phát triển bởi Google, được sử dụng trong trình
+		duyệt Chrome và cả trong Node.js(Runtime System).
+	</p>
+	<p>
+		Javascript is a single threaded single concurrent language - ngôn ngữ đồng thời đơn luồng. Điều này có nghĩa là JavaScript chỉ có thể xử lý 1 tác vụ (1 dòng code) tại 1 thời điểm. JavaScript
+		có
+		<strong>Call Stack</strong>, <strong>Heap</strong> và <strong>Queue</strong> tạo thành <strong>JavaScript Concurrency Model</strong> (Mô hình được sử dụng trong V8 Engine).
+	</p>
+	<br />
+	<h4><span>&#9899;</span> Call Stack</h4>
+	<div class="space-80">
+		<p>
+			Call Stack là một cấu trúc dữ liệu được dùng để lưu lại "function calls". Thông qua Call Stack, chúng ta có thể biết được dòng script nào đang được thực thi.
+		</p>
+		<img src="/blog/assets/imgs/call_stack.gif" />
+		<p>Chúng ta có thể thấy rõ cách Call Stack làm việc bằng cách <strong>Throw Error</strong></p>
+		<img src="/blog/assets/imgs/call_stack_error_trace.png" alt="" />
+		<p>
+			Đôi khi, chúng ta gặp phải vòng lặp vô hạn. Đối với trình duyệt Chrome, Call Stack có giới hạn về kích thước là 16.000 frames, nếu có nhiều hơn số frame tối đa, chúng ta sẽ gặp lỗi
+			<strong>Max Stack Error Reached</strong>
+		</p>
+		<img src="/blog/assets/imgs/call_stack_error.png" alt="" />
+	</div>
+	<br />
+	<h4><span>&#9899;</span> Memory Heap</h4>
+</div>

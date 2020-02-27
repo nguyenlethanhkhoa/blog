@@ -1,18 +1,45 @@
+body {
+	font-family: "Nunito";
+	font-size: 20px;
+	font-weight: 500;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
+}
+
 .content-container {
-    position: fixed;
-    top: 0;
-    left: 240px;
-    right: 0;
-    bottom: 0;
+	position: fixed;
+	top: 0;
+	left: 240px;
+	right: 0;
+	bottom: 0;
 }
 
 .content {
-    padding: 25px 50px;
+	padding: 25px 50px;
 }
 
 pre {
-    background: #353535;
-    color: white;
-    padding: 25px 5px;
-    font-weight: bold;
+	background: #353535;
+	color: white;
+	padding: 25px 5px;
+	font-weight: bold;
+}
+
+.space-40 {
+	padding-left: 40px;
+}
+
+.space-80 {
+	padding-left: 80px;
+}
+
+span {
+	font-size: 15px;
 }
