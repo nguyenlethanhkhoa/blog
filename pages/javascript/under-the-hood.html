@@ -23,34 +23,58 @@
 		Các JavaScript Engine thường được phát triển bởi các nhà cung cấp trình duyệt. Như V8 (Chrome), SpiderMonkey (FireFox), JavaScriptCore (Safari), Chakra (Microsoft Edge). Trong trình duyệt,
 		JavaScript Engine chạy phối hợp với Rendering Engine thông qua DOM(Document Object Model).
 	</p>
-	<p></p>
 	<p>
 		Hiện nay, việc sử dụng các JavaScript Engine không còn bị giới hạn ở các trình duyệt. Như <strong>V8</strong> là một JavaScript Engine được phát triển bởi Google, được sử dụng trong trình
 		duyệt Chrome và cả trong Node.js(Runtime System).
 	</p>
 	<br />
 </div>
+<h3>Resident Set in V8</h3>
+<div class="space-40">
+	<p>Trong V8, Một chương trình đang chạy luôn được thể hiện thông qua một số không gian được phân bổ trong bộ nhớ. Không gian này được gọi là <strong>Resident Set</strong></p>
+	<br />
+	<img src="/blog/assets/imgs/resident-set.png" />
+	<br />
+	<br />
+	<br />
+	<p>Resident Set gồm 2 thành phần chính:</p>
+	<div class="space-40">
+		<p>
+			<span class="point">&#9899;</span> <strong>Call Stack</strong> (<strong>Memory Stack</strong>) là nơi code được thực thi cũng như lưu trữ dữ liệu tĩnh bao gồm method/function frames,
+			primitive value và con trỏ đến Object.
+		</p>
+		<p><span class="point">&#9899;</span> <strong>Memory Heap</strong> là nơi lưu trữ Object và dữ liệu động.</p>
+		<br />
+		<div class="slider no-focused" tabindex="0">
+			<img class="slider-item" src="/blog/assets/imgs/under_the_hood_slide_0.jpg" />
+			<img class="slider-item" src="/blog/assets/imgs/under_the_hood_slide_1.jpg" style="display: none;" />
+			<img class="slider-item" src="/blog/assets/imgs/under_the_hood_slide_2.jpg" style="display: none;" />
+			<img class="slider-item" src="/blog/assets/imgs/under_the_hood_slide_3.jpg" style="display: none;" />
+			<img class="slider-item" src="/blog/assets/imgs/under_the_hood_slide_4.jpg" style="display: none;" />
+			<img class="slider-item" src="/blog/assets/imgs/under_the_hood_slide_5.jpg" style="display: none;" />
+			<img class="slider-item" src="/blog/assets/imgs/under_the_hood_slide_6.jpg" style="display: none;" />
+			<img class="slider-item" src="/blog/assets/imgs/under_the_hood_slide_7.jpg" style="display: none;" />
+			<img class="slider-item" src="/blog/assets/imgs/under_the_hood_slide_8.jpg" style="display: none;" />
+			<img class="slider-item" src="/blog/assets/imgs/under_the_hood_slide_9.jpg" style="display: none;" />
+			<img class="slider-item" src="/blog/assets/imgs/under_the_hood_slide_10.jpg" style="display: none;" />
+			<img class="slider-item" src="/blog/assets/imgs/under_the_hood_slide_11.jpg" style="display: none;" />
+			<img class="slider-item" src="/blog/assets/imgs/under_the_hood_slide_12.jpg" style="display: none;" />
+			<img class="slider-item" src="/blog/assets/imgs/under_the_hood_slide_13.jpg" style="display: none;" />
+			<img class="slider-item" src="/blog/assets/imgs/under_the_hood_slide_14.jpg" style="display: none;" />
+		</div>
+	</div>
+</div>
+<br />
+<br />
 <br />
 <h3>JavaScript Concurrency Model</h3>
 <div class="space-40">
 	<p>
-		<strong><i>Javascript is a single threaded single concurrent language</i> - ngôn ngữ đồng thời đơn luồng</strong>. Điều này có nghĩa là JavaScript chỉ có thể xử lý 1 tác vụ (1 dòng code) tại 1
-		thời điểm. JavaScript có <strong>Call Stack</strong> (còn được gọi là <strong>Memory Stack</strong>), <strong>Memory Heap</strong> và <strong>Message Queue</strong> tạo thành
-		<strong>JavaScript Concurrency Model</strong> (Mô hình được sử dụng trong V8 Engine) dựa trên <strong>Event Loop</strong>.
+		<strong><i>Javascript is a single threaded single concurrent language</i> - ngôn ngữ đồng thời đơn luồng</strong>. Điều này có nghĩa là JavaScript chỉ có thể xử lý 1 tác vụ tại 1 thời điểm. Ở
+		ví dụ trên, chúng ta đã thấy Call Stack và Heap hoạt động, chỉ có duy nhất một đoạn code được thực thi tại 1 thời điểm. Vậy làm thế nào để JavaScript có thể xử lý những tác vụ bất đồng bộ ?
 	</p>
-	<br />
-	<h4><span>&#9899;</span> Call Stack</h4>
-	<div class="space-80">
-		<p>
-			Call Stack là một cấu trúc dữ liệu được dùng để lưu lại "function calls". Thông qua Call Stack, chúng ta có thể biết được dòng script nào đang được thực thi.
-		</p>
-
-		<!-- <p>Chúng ta có thể thấy rõ cách Call Stack làm việc bằng cách <strong>Throw Error</strong></p>
-		<img src="/blog/assets/imgs/call_stack_error_trace.png" alt="" /> -->
-		<p>
-			Đôi khi, chúng ta gặp phải vòng lặp vô hạn. Đối với trình duyệt Chrome, Call Stack có giới hạn về kích thước là 16.000 frames, nếu có nhiều hơn số frame tối đa, chúng ta sẽ gặp lỗi
-			<strong>Max Stack Error Reached</strong>.
-		</p>
-		<img src="/blog/assets/imgs/call_stack_error.png" alt="" />
-	</div>
+	<p>
+		Thực ra, ngoài <strong>Call Stack</strong>, <strong>Memory Heap</strong>, JavaScript Engine còn có <strong>Message Queue</strong>, tạo thành <strong>JavaScript Concurrency Model</strong> (Mô
+		hình được sử dụng trong V8 Engine) dựa trên <strong>Event Loop</strong>
+	</p>
 </div>

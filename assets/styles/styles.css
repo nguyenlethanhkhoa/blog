@@ -43,3 +43,7 @@ pre {
 span {
 	font-size: 15px;
 }
+
+.no-focused {
+	outline: none;
+}
