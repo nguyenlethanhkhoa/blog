@@ -67,14 +67,36 @@
 <br />
 <br />
 <br />
-<h3>JavaScript Concurrency Model</h3>
+<h3>Concurrency & Event Loop</h3>
 <div class="space-40">
 	<p>
 		<strong><i>Javascript is a single threaded single concurrent language</i> - ngôn ngữ đồng thời đơn luồng</strong>. Điều này có nghĩa là JavaScript chỉ có thể xử lý 1 tác vụ tại 1 thời điểm. Ở
 		ví dụ trên, chúng ta đã thấy Call Stack và Heap hoạt động, chỉ có duy nhất một đoạn code được thực thi tại 1 thời điểm. Vậy làm thế nào để JavaScript có thể xử lý những tác vụ bất đồng bộ ?
 	</p>
+	<br />
 	<p>
-		Thực ra, ngoài <strong>Call Stack</strong>, <strong>Memory Heap</strong>, JavaScript Engine còn có <strong>Message Queue</strong>, tạo thành <strong>JavaScript Concurrency Model</strong> (Mô
-		hình được sử dụng trong V8 Engine) dựa trên <strong>Event Loop</strong>
+		Thực ra, ngoài <strong>Call Stack</strong>, <strong>Memory Heap</strong>, chúng ta sẽ được cung cấp các <strong>Web API</strong> bởi Web Browser như setTimeout, setInterval, ... Còn trong môi
+		trường Server Side như <strong>Node JS</strong>, chúng ta có một tập các <strong>C++ API</strong>. Những API đó sẽ giúp chúng ta làm việc hiệu quả hơn với Thread vì vậy Thread sẽ bị che đi
+		trong code C++.
 	</p>
+	<br />
+	<p>
+		Vì Web API (C++ API) được xem như một library bổ sung nên nó sẽ không thể thay đổi mã nguồn cũng như không thể làm việc trực tiếp với <strong>Call Stack</strong>. Đây là lúc
+		<strong>Task Queue</strong>(<strong>Callback Queue</strong>) xuất hiện.
+	</p>
+	<br />
+	<p>
+		Bất kỳ Web API (C++ API) nào cũng sẽ đưa callback vào Task Queue khi nó hoàn thành. Lúc này, nhiệm vụ của <strong>Event Loop</strong> là <i><u>đợi đến khi Call Stack rỗng</u></i> và lấy những
+		thứ trên Task Queue bỏ vào Call Stack.
+	</p>
+	<br />
+	<p><strong>Call Stack</strong>, <strong>Memory Heap</strong> và <strong>Callback Queue</strong> tạo thành <strong>JavaScript Concurrency Model</strong> dựa trên <strong>Event Loop</strong>.</p>
+	<br />
+	<h4>Note</h4>
+	<div class="space-40">
+		<p>
+			Trên browser, ngoài Callback Queue, chúng ta còn có <strong>Render Queue</strong>. Render Queue có độ ưu tiên cao hơn Callback Queue nên nó sẽ được Event Loop đưa vào Call Stack trước
+			Callback Queue.
+		</p>
+	</div>
 </div>
