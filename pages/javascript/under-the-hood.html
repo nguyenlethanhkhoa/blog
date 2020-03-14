@@ -40,10 +40,14 @@
 	<p>Resident Set gồm 2 thành phần chính:</p>
 	<div class="space-40">
 		<p>
-			<span class="point">&#9899;</span> <strong>Call Stack</strong> (<strong>Memory Stack</strong>) là nơi code được thực thi cũng như lưu trữ dữ liệu tĩnh bao gồm method/function frames,
-			primitive value và con trỏ đến Object.
+			<span class="point">&#9899;</span> <strong>Call Stack</strong> (<strong>Memory Stack</strong>) là nơi code được thực thi cũng như lưu trữ dữ liệu tĩnh bao gồm primitive value và con trỏ
+			đến các Object được lưu trên Heap và các con trỏ xác định control flow (luồng chạy) của chương trình.
 		</p>
-		<p><span class="point">&#9899;</span> <strong>Memory Heap</strong> là nơi lưu trữ Object và dữ liệu động.</p>
+		<p>
+			<span class="point">&#9899;</span> <strong>Memory Heap</strong> là nơi lưu trữ Objects, Strings và
+			<strong><a href="https://www.tutorialsteacher.com/javascript/closure-in-javascript" target="blank">Closures</a></strong
+			>.
+		</p>
 		<br />
 		<div class="slider no-focused" tabindex="0">
 			<img class="slider-item" src="/blog/assets/imgs/under_the_hood_slide_0.jpg" />
