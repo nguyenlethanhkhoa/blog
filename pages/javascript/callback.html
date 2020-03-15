@@ -1,0 +1,79 @@
+<div class="space-40">
+    <p>
+        <strong>Callback</strong> là một trong những cách xử lý bất đồng bộ
+        trong
+        JavaScript. Chúng ta bắt gặp nó ở khắp mọi nơi trong JavaScript, từ xử
+        lý DOM Event cho đến Ajax Response. Vậy Callback là gì ?
+    </p>
+    <p>
+        Trong JavaScript, <strong>Function</strong> thực ra là một
+        <strong>Object</strong>. Do đó, một Function có thể nhận một Function
+        khác như là một tham số. Những Function được truyền vào Function khác
+        như một tham số, chúng được gọi là <strong>Callback</strong>.
+    </p>
+    <br>
+    <pre>
+        function first() {
+            console.log('first called.');
+        }
+
+        function second(callback) {
+            console.log('second called.');
+            callback();
+        }
+
+        second(first);  // second called.
+                        // first called. 
+    </pre>
+    <br>
+    <p>Trong ví dụ này, <strong>first</strong> chính là
+        <strong>callback</strong>.Vậy Callback có được bỏ vào Callback Queue và
+        chỉ được thực thi khi Call
+        Stack rỗng?</p>
+    <p>Như trong đoạn code trên, <strong>first</strong> được chạy đồng bộ và
+        không được bỏ vào Callback Queue vì nó được gọi trực tiếp từ một hàm của
+        JavaScript. Nhưng nếu như <strong>first</strong> được gọi từ <strong>Web
+            API</strong> như
+        <strong>setTimeout</strong>, lúc này <strong>first</strong> sẽ được bỏ
+        vào Callback Queue.</p>
+    <p>Như vậy, cùng với Web API, Callback là một công cụ hoàn hảo để chúng ta
+        có thể giải quyết bài toán bất đồng bộ trong JavaScript. Đó là cho đến
+        khi chúng ta chưa gặp phải <strong>Callback Hell</strong>.</p>
+</div>
+<br>
+<h3>Callback Hell</h3>
+<div class="space-40">
+    <br>
+    <pre>
+        fs.readdir(source, function (err, files) {
+            if (err) {
+                console.log('Error finding files: ' + err)
+            } 
+            else {
+                files.forEach(function (filename, fileIndex) {
+                    console.log(filename)
+                    gm(source + filename).size(function (err, values) {
+                        if (err) {
+                            console.log('Error identifying file size: ' + err)
+                        } else {
+                            console.log(filename + ' : ' + values)
+                            aspect = (values.width / values.height)
+                            widths.forEach(function (width, widthIndex) {
+                                height = Math.round(width / aspect)
+                                console.log('resizing ' + filename + 'to ' + height + 'x' + height)
+                                this.resize(width, height).write(dest + 'w' + width + '_' + filename, function(err) {
+                                    if (err) console.log('Error writing file: ' + err)
+                                })
+                            }.bind(this))
+                        }
+                    })
+                })
+            }
+        })
+    </pre>
+    <br>
+    <p>Khi ta có callback lồng trong callback như thế này, đoạn code trở nên khó
+        đọc và rất loạn, nó được gọi là callback hell. Điều này xảy ra khi nhiều
+        người muốn viết JavaScript theo cách xử lý tuần tự từ trên xuống dưới,
+        tuy nhiên đó lại là sai lầm dẫn đến đoạn code rất rối.</p>
+</div>
