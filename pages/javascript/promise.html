@@ -1,2 +1,148 @@
+<pre>
+    function First() {
+        console.log('first called.');
+    }
 
+    function Second(callback) {
+        console.log('second called.');
+        callback();
+    }
 
+    second(First);  // second called.
+                    // first called.
+</pre>
+
+<p>Trong đoạn code trên, <strong>First</strong> sẽ không được bỏ vào <strong>Callback Queue</strong> mà sẽ được chạy đồng bộ. Như vậy nếu như không dùng đến <strong>Web API</strong> thì chúng ta sẽ không thể xử lý bất đồng bộ với Callback.</p>
+<p>Để khắc phục những nhược điểm của Callback trong việc xử lý bất đồng bộ. JavaScript đã cung cấp cho chúng ta một công cụ xử lý bất đồng bộ tốt hơn ở ES6 là <strong>Promise</strong></p>
+
+<br>
+<h3>Promise</h3>
+<div class="space-40">
+    <p>Hãy tưởng tượng rằng bạn cho Bill mượn 10$ và ông ta hứa rằng 3 ngày sau sẽ trả bạn 15$ còn bạn thì đang muốn mua điện thoại mới với giá 15$. Vì vậy bạn quyết định cho Bill mượn tiền lấy lời để mua điện thoại.</p>
+    <p>Sau 3 ngày sẽ có 2 kết quả xảy ra.</p>
+    <div class="space-40">
+        <p>Bill trả đủ tiền và bạn mua được điện thoại mới.</p>
+        <p>Bill méo trả, bạn mất luôn tiền.</p>
+    </div>
+    <p>Ví dụ trên là mô tả chính xác về cách hoạt động của <strong>Promise</strong> trong JavaScript.</p>
+    <p>Thực tế, Promise là một Object đặc biệt dùng cho các xử lý bất đồng bộ.</p>
+    <pre>
+        let cho_muon_tien = new Promise(function(resolve, reject) {
+            // Cho Bill mượn 10$ và đợi kết quả từ Bill
+        });
+    </pre>
+    <br>
+    <h4>Promise State</h4>
+    <div class="space-40">
+        <p>Promise có 3 trạng thái chính:</p>
+        <div class="space-40">
+            <p><strong>pending</strong>: Trạng thái chờ xử lý kết thúc. (Chờ Bill trả tiền)</p>
+            <p><strong>fulfilled</strong>: Đã xử lý thành công và trả về kết quả. (Bill trả đủ 11$)</p>
+            <p><strong>rejected</strong>: Đã xử lý thất bại và trả về lỗi. (Bill không trả tiền hoặc trả không đủ 11$)</p>
+        </div>
+    </div>
+    <br>
+    <h4>Executor</h4>
+    <div class="space-40">
+        <p>Function <strong>cho_muon_tien</strong> được gọi là <strong>Executor</strong>. Executor sẽ được truyền vào dưới dạng callback khi khởi tạo Promise. Ngay khi Promise được khởi tạo, Executor sẽ chạy ngay thời điểm đó.</p>
+        <p><strong>Resolve</strong> và <strong>Reject</strong> là 2 Callback Argument của Executor được cung cấp bởi JavaScript để ta có thể thay đổi trạng thái của Promise.</p>
+        <p>Khi <strong>resolve(value)</strong> được gọi, Promise sẽ trả về giá trị mà chúng ta truyền vào <strong>resolve</strong> và chuyển trạng thái từ <strong>pending</strong> sang <strong>fulfilled</strong>.</p>
+        <p>Ngược lại, khi <strong>reject(error)</strong> được gọi, Promise sẽ trả về error mà chúng ta truyền vào <strong>reject</strong> và chuyển trạng thái từ <strong>pending</strong> sang <strong>rejected</strong>.</p>
+        <br>
+        <img src="/blog/assets/imgs/promise-resolve-reject.svg">
+    </div>
+    <br>
+    <br>
+    <h3>Consumers</h3>
+    <div class="space-40">
+        <p><strong>State</strong> và <strong>Result</strong> của Promise là <strong>internal scope</strong>. Do đó, ta không thể truy cập trực tiếp mà phải thông qua những <strong>Consumer</strong> là <strong>then</strong>, <strong>catch</strong> và
+            <strong>finally</strong>.</p>
+        <h4>Then</h4>
+        <div class="space-40">
+            <pre>
+                promise.then(
+                    function(result) { /* handle a successful result */ },
+                    function(error) { /* handle an error */ }
+                );
+            </pre>
+            <p>Tham số đầu tiên của <strong>.then</strong> sẽ chạy ngay sau khi hàm <strong>resolve</strong> được gọi bởi <strong>executor</strong></p>
+            <p>Tham số thứ 2 của <strong>.then</strong> sẽ chạy ngay sau khi hàm <strong>reject</strong> được gọi bởi <strong>executor</strong></p>
+        </div>
+        <h4>Catch</h4>
+        <div class="space-40">
+            <p>Nếu chúng ta chỉ muốn xử lý khi Promise bị reject, ta có thể dùng <strong>catch</strong>. Việc xử dụng <strong>.catch</strong> cũng tương tự như <strong>.then(null, handleErrorFunc)</strong></p>
+        </div>
+        <h4>Finally</h4>
+        <div class="space-40">
+            <p><strong>.finally()</strong> tương tự như <strong>.then(f, f)</strong>. Nhưng có một số khác biệt sau:</p>
+            <div class="space-40">
+                <p><strong>.finally()</strong> sẽ chạy ngay sau khi <strong>resolve</strong> hoặc <strong>reject</strong> được gọi.</p>
+                <p><strong>.finally()</strong> không có bất kỳ tham số nào. Điều này đồng nghĩa với việc <strong>.finally()</strong> sẽ không thể biết được <strong>state</strong>, <strong>result</strong> hoặc <strong>error</strong> của Promise.</p>
+            </div>
+            <p>Với những đặc tính này, ta có thể sử dụng <strong>.finally()</strong> để xử lý những tác vụ khi Promise hoàn thành mà không cần quan tâm đến kết quả của Promise.</p>
+        </div>
+    </div>
+</div>
+<br>
+<h3>Promises Chaining</h3>
+<div class="space-40">
+    <p>Quay lại ví dụ, cho Bill mượn tiền. Bạn của bạn biết 3 ngày nữa bạn sẽ có điện thoại mới nên hỏi mượn. Và bạn hứa rằng sau khi mua sẽ cho mượn.</p>
+    <pre>
+        let cho_muon_tien = new Promise(function(resolve, reject) {
+            // Cho Bill mượn 10$ và đợi kết quả từ Bill
+        });
+
+        cho_muon_tien.then(function(tien) {
+            let mua_dien_thoai = new Promise(function(resolve, reject) {
+                // Mua dien thoai và chờ lấy hàng
+            });
+
+            mua_dien_thoai.then(function(dien_thoai) {
+                // Cho bạn mượn
+            })
+        });
+    </pre>
+    <p>Nếu như chúng ta có thêm nhiều hành động phụ thuộc vào kết quả của hành động, chúng ta sẽ mắc phải lỗi <strong>Callback Hell</strong>. Do đó, Promise hỗ trợ chúng ta cách code sau để khắc phục <strong>điểm yếu của Callback</strong>.</p>
+    <pre>
+        let cho_muon_tien = new Promise(function(resolve, reject) {
+            // Cho Bill mượn 10$ và đợi kết quả từ Bill
+        });
+
+        cho_muon_tien
+            .then(mua_dien_thoai)
+            .then(cho_ban_muon);
+    </pre>
+    <p>Chúng ta có thể làm được điều này vì Promise sẽ truyền kết quả của <strong>.then()</strong> trước làm tham số của <strong>.then()</strong> sau và return của <strong>.then()</strong> là một Promise.</p>
+    <p>Một sai lầm mà chúng ta thường hay mắc phải đó là sự nhầm lẫn giữa <strong>Promises chaining</strong> và <strong>Multiple Then</strong>.</p>
+    <br>
+    <div class="row">
+        <div class="col-sm-6 text-center">
+            <p><strong>Promises chaining</strong></p>
+            <img src="/blog/assets/imgs/promise-then-chain.png">
+        </div>
+        <div class="col-sm-6 text-center">
+            <p><strong>Multiple Then</strong></p>
+            <img src="/blog/assets/imgs/promise-then-many.svg">
+        </div>
+    </div>
+</div>
+<br>
+<h3>Error Handling</h3>
+<div class="space-40">
+    <p>Thực ra trong <strong>Executor</strong> hay <strong>.then()</strong> đều có <strong>try...catch</strong> ngầm mà chúng ta không thấy được.</p>
+    <pre>
+        new Promise((resolve, reject) => {
+            throw new Error("Whoops!");
+        }).catch(alert); // Error: Whoops!
+    </pre>
+    <p>Như dòng code ở trên, nếu có bất kỳ Exception nào xảy ra trong <strong>Executor</strong> hay <strong>.then()</strong> nó sẽ bị catch và được xem như là đã <strong>reject</strong>.</p>
+    <p>Nhưng nếu như bỏ <strong>throw new Error("Whoops!");</strong> vào setTimeout thì sẽ thế nào ?</p>
+    <pre>
+        new Promise(function(resolve, reject) {
+            setTimeout(() => {
+              throw new Error("Whoops!");
+            }, 1000);
+        }).catch(alert);
+    </pre>
+    <p>Trong trường hợp này, <strong>.catch()</strong> sẽ không được trigger. Bởi vì <strong>try...catch</strong> chỉ có thể catch được <strong>synchronous</strong> error. Nhưng ở đoạn code trên, error được sinh ra sau khi <strong>Executor</strong> chạy. Nên Promise sẽ không thể xử lý được error vì thế <strong>.catch()</strong> sẽ không được trigger.</p>
+</div>
