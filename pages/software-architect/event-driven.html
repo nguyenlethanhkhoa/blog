@@ -1,0 +1,36 @@
+<h3>What is Event-Driven Architect (EDA)?</h3>
+<div class="space-40">
+	<p>
+		<strong>EDA</strong> là một <a href="https://en.wikipedia.org/wiki/Architectural_pattern" target="_blank">kiến trúc phần mềm</a> mà trong đó, phần mềm sẽ được xây dựng xung quanh các thao tác
+		như tạo, phát hiện và tương tác với Event.
+	</p>
+	<p>
+		Hiểu đơn giản hơn thì các phần mềm được thiết kế theo <strong>EDA</strong> sẽ được xây dựng dựa trên các luồng event, sử dụng event như là phương tiện giao tiếp giữa các components, modules
+		hoặc services.
+	</p>
+	<p>
+		Thuật ngữ Kiến trúc hướng sự kiện được sử dụng cho bất kỳ loại hệ thống phần mềm nào dựa trên các thành phần giao tiếp chủ yếu hoặc độc quyền thông qua các sự kiện. Ví dụ, hầu hết mọi khung
+		GUI chính trên bất kỳ nền tảng phổ biến nào đều sử dụng cơ chế hướng sự kiện. Thuật ngữ "sự kiện" thường có nghĩa là "thông báo" trong ngữ cảnh này.
+	</p>
+</div>
+<br />
+<br />
+<h3>Abstract Structure</h3>
+<div class="space-40">
+	<img src="/blog/assets/imgs/event-driven-abstract-structure.png" alt="" />
+	<p>Một hệ thống <strong>ODA</strong> thường bao gồm ba thành phần:</p>
+	<div class="space-40">
+		<p><strong>Event Channels</strong></p>
+		<p><strong>Event Emitter</strong>: Nơi quản lý và cung cấp các chức năng để làm việc với Event.</p>
+		<p><strong>Event Consumer</strong>: Nơi sử dụng Event như một trigger để thực thi một tính năng hay công việc gì đó thông qua <strong>Event Channel</strong></p>
+	</div>
+	<p>
+		Với kiến trúc này, <strong>Event Emitter</strong> sẽ không biết <strong>Event Consumer</strong> có tồn tại hay không và cũng không biết <strong>Event Consumer</strong> sẽ sử dụng
+		<strong>Event</strong> như thế nào. Do đó sẽ tạo ra mối liên kết lỏng lẻo (loose coopling) giữa Event Emitter và Event Consumer nhờ đó có thể tăng khả năng mở rộng cũng như phục hồi của hệ
+		thống.
+	</p>
+	<p>Trên thực tế, <strong>Event Channel</strong> là abstraction (trừu tượng - không có implementation).</p>
+</div>
+<br />
+<h3>Advantages</h3>
+<h3>Disadvantages</h3>

@@ -1,0 +1,138 @@
+<h3>Precision and Recall</h3>
+<div class="space-40">
+    <p><strong>Precision and Recall</strong> là một phương pháp dùng để đánh giá tính hiệu quả của một
+        <strong>Model</strong>. Phương pháp này đa phần được sử dụng cho <strong>Binary Clasification Model</strong>.
+    </p>
+    <p>Với một bài toán <strong>Binary Classification</strong> kinh điển như phân loại mail, sau khi define model và
+        chạy
+        test, chúng ta có 4 đại lượng sau:</p>
+    <div class="space-40">
+        <p><span class="point">&#9899;</span>&nbsp;&nbsp;<strong>True:</strong> Classify đúng.</p>
+        <p><span class="point">&#9899;</span>&nbsp;&nbsp;<strong>False:</strong> Classify sai.</p>
+        <br>
+        <p><span class="point">&#9899;</span>&nbsp;&nbsp;<strong>Positive:</strong> Spam.</p>
+        <p><span class="point">&#9899;</span>&nbsp;&nbsp;<strong>Negative:</strong> Not Spam.</p>
+    </div>
+
+    <p>Và có thể dễ dàng tính được Precision và Recall với công thức sau:</p>
+
+    <div class="space-40">
+        <table>
+            <tbody>
+                <tr>
+                    <td rowspan="2" width="120px"><strong>Precision</strong></td>
+                    <td rowspan="2"><strong>=&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+                    <td style="border-bottom: 2px solid black; text-align: center;"><strong>True Positive</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>True Positive + True Negative</strong></td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <table>
+            <tbody>
+                <tr>
+                    <td rowspan="2" width="120px"><strong>Recall</strong></td>
+                    <td rowspan="2"><strong>=&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+                    <td style="border-bottom: 2px solid black; text-align: center;"><strong>True Positive</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>True Positive + False Negative</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <br>
+    <p>Như vậy, <strong>Precision</strong> là tỉ lệ chính xác của model khi dự đoán mail spam. <strong>Recall</strong>
+        là tỉ
+        lệ dự đoán mail spam trong những mail thực sự là spam.</p>
+    <p>Do đó, khi <strong>Precision</strong> cao, đồng nghĩa với độ chính xác của những mail được đánh dấu spam là cao.
+        Khi <strong>Recall</strong> cao đồng nghĩa với tỉ lệ bỏ sót các mail spam là thấp.</p>
+</div>
+<br>
+<h3>Confusion Matrix</h3>
+<div class="space-40">
+    <p>Nếu <strong>Precision and Recall</strong> chỉ hiệu quả đối với <strong>Binary Classification</strong> thì làm thế
+        nào để chúng ta có thể đánh giá <strong>Multi-Class Classification</strong>?</p>
+    <p>Đối với Multi-Class Classification, ta sẽ sử dụng phương pháp <strong>Confusion Matrix</strong> để đánh giá tính
+        hiệu quả của model.</p>
+    <p><strong>Confusion Matrix</strong> là một mảng mà thông qua nó ta có thể visualize kết quả test của model.</p>
+    <br>
+    <div class="space-80">
+        <table>
+            <tbody>
+                <tr>
+                    <td width="100px">Total: 10</td>
+                    <td class="text-center" width="175px">Predicted as 0</td>
+                    <td class="text-center" width="175px">Predicted as 1</td>
+                    <td class="text-center" width="175px">Predicted as 2</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Label: 0</td>
+                    <td class="text-center">2</td>
+                    <td class="text-center">1</td>
+                    <td class="text-center">1</td>
+                    <td class="text-center">4</td>
+                </tr>
+                <tr>
+                    <td>Label: 1</td>
+                    <td class="text-center">1</td>
+                    <td class="text-center">2</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">3</td>
+                </tr>
+                <tr>
+                    <td>Label: 2</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">1</td>
+                    <td class="text-center">2</td>
+                    <td class="text-center">3</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <p>Thông qua <strong>Confusion Matrix</strong>, ta sẽ biết được có bao nhiêu dữ liệu của class A được dự đoán đúng
+        và bao nhiêu dữ liệu dự đoán sai, và những dữ liệu sai rơi vào class nào.</p>
+    <p>Từ đây, chúng ta có thể thấy các phần tử trên đường chéo chính là số lượng dữ liệu được dự đoán đúng của mỗi
+        class, do đó ta có thể tính độ chính xác của model bằng cách lấy <strong>Tổng các phần tử trên đường chéo chia
+            cho tổng phần tử của mảng.</strong></p>
+    <p>Thông thường để mang lại nhiều ý nghĩa hơn cho việc visualize kết quả, người ta thường sử dụng <strong>Normalized
+            Confusion Matrix</strong>. Để normalize một confusion matrix, ta sẽ lấy giá trị của mỗi phần tử chia cho
+        tổng các phần tử trên cùng hàng.</p>
+    <br>
+    <div class="space-80">
+        <table>
+            <tbody>
+                <tr>
+                    <td width="100px"></td>
+                    <td class="text-center" width="175px">Predicted as 0</td>
+                    <td class="text-center" width="175px">Predicted as 1</td>
+                    <td class="text-center" width="175px">Predicted as 2</td>
+                </tr>
+                <tr>
+                    <td>Label: 0</td>
+                    <td class="text-center">0.5</td>
+                    <td class="text-center">0.25</td>
+                    <td class="text-center">0.25</td>
+                </tr>
+                <tr>
+                    <td>Label: 1</td>
+                    <td class="text-center">0.33</td>
+                    <td class="text-center">0.67</td>
+                    <td class="text-center">0.00</td>
+                </tr>
+                <tr>
+                    <td>Label: 2</td>
+                    <td class="text-center">0.00</td>
+                    <td class="text-center">0.33</td>
+                    <td class="text-center">0.67</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+</div>
