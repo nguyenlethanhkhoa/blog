@@ -1,0 +1,47 @@
+<p>Đa phần chúng ta đều hiểu về cách hoạt động của những ứng dụng Computer Vision như nhận diện khuôn mặt, nhận diện con
+    người, nhận diện chữ viết tay, ...</p>
+<p>Về mặt người dùng, chúng ta có thể hiểu đơn giản rằng chỉ cần truyền một tấm ảnh hoặc một đoạn video vào thứ được gọi
+    là AI thì nó sẽ vẽ ra một khung hình chữ nhật xung quanh khuôn mặt hay xuất ra một đoạn text tương tự như những gì
+    chúng ta nhìn thấy trên hình.</p>
+<p>Có bao giờ bạn tự hỏi rằng họ đã tạo ra ứng dụng đó như thế nào ?</p>
+
+<h3>Object Detection</h3>
+<div class="space-40">
+    <p><span class="point">&#9899;</span>&nbsp;&nbsp;<strong>What is it ?</strong></p>
+    <div class="space-80">
+        <p>Object Detection là một nhóm những thuật toán mà khi kết hợp chúng lại với nhau sẽ tạo ra một ứng
+            dụng có khả năng nhận dạng được những vật thể trong ảnh (khuôn mặt, người, chữ, ...)</p>
+
+        <p>Chụp hình xóa phông, gắn tai thỏ, nhận diện biển số xe, ... chính là những ứng dụng tiêu biểu của Object
+            Detection
+            trong cuộc sống.</p>
+    </div>
+    <p><span class="point">&#9899;</span>&nbsp;&nbsp;<strong>How it works ?</strong></p>
+    <div class="space-80 text-center">
+        <img src="/blog/assets/imgs/object-detection-workflow.png">
+    </div>
+    <div class="space-80">
+        <p><strong class="point">-</strong>&nbsp;&nbsp;Về cơ bản, chúng ta sẽ chuẩn bị một lượng lớn ảnh có và
+            không có object cần detect.</p>
+        <p><strong class="point">-</strong>&nbsp;&nbsp;Sau đó, chúng ta sẽ sử dụng một số những phương pháp <a
+                href="#pages/machine-learning/image-feature-extraction.html"><strong>trích xuất đặc trưng từ ảnh (Image
+                    Features Extraction)</strong></a> và truyền những đặc trưng đó vào thuật toán Machine Learning.</p>
+        <p><strong class="point">-</strong>&nbsp;&nbsp;Sau khi thuật toán kết thúc, ta sẽ nhận được một Model (có thể
+            hiểu là một function do máy tạo ra).</p>
+        <p><strong class="point">-</strong>&nbsp;&nbsp;Với model này, khi ta truyền vào một tấm ảnh mới thì ứng dụng có
+            khả năng phân loại được tấm ảnh đó có object
+            hay không.</p>
+        <p><strong class="point">-</strong>&nbsp;&nbsp;Thông qua một số thuật toán, chúng ta sẽ có được vị trí của
+            object đó trong hình.</p>
+    </div>
+</div>
+<h3>Person Detection with Inria Dataset</h3>
+<div class="space-40">
+    <p><a href="https://github.com/nguyenlethanhkhoa/inria" target="blank">Example code on Github</a></p>
+    <p><a href="#pages/machine-learning/image-feature-extraction.html"><strong>HOG Feature Image</strong></a>, <a
+            href=""><strong>Sobel Filter</strong></a> và
+        <a href=""><strong>Sliding Window</strong></a> đều là những phương pháp truyền thống.</p>
+    <p>Khuyết điểm của phương pháp truyền thống đó chính là độ chính xác không cao.</p>
+    <img width="100%" src="/blog/assets/imgs/detect-person-with-inria-dataset.png">
+</div>
+<a class="hidden" href="https://www.learnopencv.com/histogram-of-oriented-gradients/" target="blank"></a>
