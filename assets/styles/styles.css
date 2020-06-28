@@ -47,3 +47,7 @@ span {
 .no-focused {
 	outline: none;
 }
+
+.base-line {
+	vertical-align: baseline;
+}

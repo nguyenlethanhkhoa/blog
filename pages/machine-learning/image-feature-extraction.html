@@ -22,8 +22,50 @@
 </div>
 <h3>How to extract Image Features ?</h3>
 <div class="space-40">
-    <p>Cách đơn giản nhất trích xuất đặc trưng ảnh chính là duỗi ảnh thành mảng một chiều. Chúng ta có thể sử dụng cách
-        này để nhận dạng chữ số viết tay trong bộ dữ liệu <a href=""><strong>mnist</strong></a></p>
-    <p>Nhưng trong thực tế, việc trích xuất đặc trưng phức tạp hơn rất nhiều. Như là <a href="">sử dụng việc thay đổi
-            màu sắc của ảnh để nhận dạng vật thể</a>, ...</p>
+    <p>Trong thực tế, việc trích xuất đặc trưng ảnh phải trải qua nhiều bước rất phức tạp vì chúng ta phải đối mặt với những vấn đề sau:</p>
+    <div class="space-40">
+        <table>
+            <tbody>
+                <tr>
+                    <td class="base-line" width="250px"><p><span class="point">&#9899;</span>&nbsp;&nbsp;<strong>Viewpoint Variation</strong></p></td>
+                    <td class="base-line" width="40px"><p><strong>:</strong></p></td>
+                    <td class="base-line"><p>Con mèo có thể được chụp theo nhiều góc và nhiều hướng khác nhau, qua đó hình dáng và đặc trưng ban đầu của con mèo cũng sẽ bị thay đổi.</p></td>
+                </tr>
+                <tr>
+                    <td class="base-line" width="250px"><p><span class="point">&#9899;</span>&nbsp;&nbsp;<strong>Scale Variation</strong></p></td>
+                    <td class="base-line" width="40px"><p><strong>:</strong></p></td>
+                    <td class="base-line"><p>Con mèo có nhiều kích thước khác nhau (bao gồm cả ngoài đời và trong ảnh) cũng gây khó khăn trong việc xác định và trích xuất đặc trưng.</p></td>
+                </tr>
+                <tr>
+                    <td class="base-line" width="250px"><p><span class="point">&#9899;</span>&nbsp;&nbsp;<strong>Deformation</strong></p></td>
+                    <td class="base-line" width="40px"><p><strong>:</strong></p></td>
+                    <td class="base-line"><p>Con mèo có nhiều hình dạng, tư thế khác nhau</p></td>
+                </tr>
+                <tr>
+                    <td class="base-line" width="250px"><p><span class="point">&#9899;</span>&nbsp;&nbsp;<strong>Occlusion</strong></p></td>
+                    <td class="base-line" width="40px"><p><strong>:</strong></p></td>
+                    <td class="base-line"><p>Trong một số trường hợp, chúng ta chỉ có thấy một phần của đối tượng. Ví dụ như khi chụp biển số nhưng bị chóa đèn.</p></td>
+                </tr>
+                <tr>
+                    <td class="base-line" width="250px"><p><span class="point">&#9899;</span>&nbsp;&nbsp;<strong>Illumination conditions</strong></p></td>
+                    <td class="base-line" width="40px"><p><strong>:</strong></p></td>
+                    <td class="base-line"><p>Độ sáng của ảnh đôi khi cũng là một vấn đề. Một số phương pháp trích xuất đặc trưng dựa trên sự thay đổi màu sắc rất dễ bị sai trong trường hợp này.</p></td>
+                </tr>
+                <tr>
+                    <td class="base-line" width="250px"><p><span class="point">&#9899;</span>&nbsp;&nbsp;<strong>Background clutter</strong></p></td>
+                    <td class="base-line" width="40px"><p><strong>:</strong></p></td>
+                    <td class="base-line"><p>Con mèo đôi khi bị lẫn vào môi trường xung quanh (con mèo có cùng màu với màu nền). Khiến cho việc xác định đặc trưng trở nên khó khăn.</p></td>
+                </tr>
+                <tr>
+                    <td class="base-line" width="250px"><p><span class="point">&#9899;</span>&nbsp;&nbsp;<strong>Intra-class variation</strong></p></td>
+                    <td class="base-line" width="40px"><p><strong>:</strong></p></td>
+                    <td class="base-line"><p>Trong trường hợp ta nhận diện chữ viết, bản thân chữ <strong>"a"</strong> cũng có nhiều biến thể. Phông chữ, chữ in hoa và chữ thường cũng có những hình dáng khác nhau. Deformation sẽ trở thành vấn đề phức tạp hơn trong nhận dạng chữ viết tay.</p></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <div class="space-40 text-center">
+        <img src="/blog/assets/imgs/image-feature-extraction.jpeg">
+    </div>
 </div>
