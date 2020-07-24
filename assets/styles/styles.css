@@ -51,3 +51,15 @@ span {
 .base-line {
 	vertical-align: baseline;
 }
+
+.block {
+    display: block;
+}
+
+.tag {
+    background: lightblue;
+    padding: 3px 7px;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+}

@@ -1,14 +1,72 @@
 <h3>What is process ?</h3>
-<p><strong>Process</strong> có thể được hiểu là tiến trình chạy của một hay nhiều đoạn code. Hay có thể xem
-    <strong>Process</strong> chính là một đơn vị thực thi (execution unit) mà trong mỗi đơn vị này có một chương trình
-    (code) đang chạy.</p>
+<div class="space-40">
+    <p><strong>Process</strong> có thể được hiểu là tiến trình chạy của một hay nhiều đoạn code. Hay có thể xem
+        <strong>Process</strong> chính là một đơn vị thực thi (execution unit) mà trong mỗi đơn vị này có một chương
+        trình
+        (code) đang chạy.</p>
 
-<p>Những hoạt động của <strong>Process</strong> được quản lý bởi <strong>Process Control Block</strong>.</p>
+    <p>Khi <i>một process được tạo ra bởi một process khác</i> thì đó là <strong>Child Process</strong></p>
+
+    <p>Những hoạt động của <strong>Process</strong> được quản lý bởi <strong>Process Control Block</strong>.</p>
+</div>
 
 <h3>What is Process Control Block ?</h3>
-<p>Khi mỗi process được tạo ra, hệ điều hành sẽ gán cho process đó một <strong>PID</strong> để định danh để tiện cho
-    việc theo dõi cũng như quản lý các process. Và để quản lý được tất cả các process đã được tạo ra, hệ điều hành cần
-    lưu trữ PID và những thông số khác để quản lý process và đó là lý do Process Control Block ra đời.</p>
+<div class="space-40">
+    <p>Khi mỗi process được tạo ra, hệ điều hành sẽ gán cho process đó một <strong>PID</strong> để định danh để tiện cho
+        việc theo dõi cũng như quản lý các process. Và để quản lý được tất cả các process đã được tạo ra, hệ điều hành
+        cần
+        lưu trữ PID và những thông số khác để quản lý process và đó là lý do Process Control Block ra đời.</p>
 
-<p><strong>Process Control Block</strong> sẽ lưu trữ <i>process state</i>, <i>program counter</i>, <i>stack pointer</i>,
-    <i>trạng thái của những file được mở</i>, <i>scheduling algorithms</i>, ...</p>
+    <p><strong>Process Control Block</strong> sẽ lưu trữ <i>process state</i>, <i>program counter</i>, <i>stack
+            pointer</i>,
+        <i>trạng thái của những file được mở</i>, <i>scheduling algorithms</i>, ...</p>
+
+    <div class="space-40 text-center">
+        <img width="25%" src="/blog/assets/imgs/process-control-block.jpg">
+    </div>
+
+    <p><strong>Stack Pointer :</strong> Được dùng để lưu lại các trạng thái khi Process chuyển từ trạng thái này sang
+        trạng
+        thái khác.</p>
+    <p><strong>Process State :</strong> Được dùng để lưu trạng thái hiện tại của Process</p>
+    <p><strong>Process Number :</strong> Chính là PID được cấp cho mỗi Process khi nó được khởi tạo</p>
+    <p><strong>Program Counter :</strong> Nơi lưu trữ địa chỉ vùng nhớ của đoạn code được thực thi tiếp theo.</p>
+    <p><strong>Register (CPU Register) :</strong> Là các thanh ghi CPU bao gồm accumulator, base, registers và general
+        purpose registers.</p>
+    <p><strong>Memory limits :</strong> Nơi chứa những thông tin về bộ nhớ được sử dụng bởi hệ điều hành cho Process đó.
+    </p>
+    <p><strong>Open files list :</strong> Thông tin về những file được mở bởi code trong Process hoặc được hệ điều hành
+        mở
+        cho chính Process đó
+    </p>
+    <p><strong>Miscellaneous accounting and status data :</strong> Nơi cho biết về số lượng CPU (core) được sử dụng,
+        time
+        constraints (hạn chế thời gian), ...
+    </p>
+</div>
+
+<h3>Process Communication</h3>
+<div class="space-40">
+    <p>Có 2 dạng Process là <strong>Independent Process</strong> và <strong>Co-operating Process</strong>.</p>
+    <p><strong>Independent Process</strong> không thể bị can thiệp bởi các process khác khi đang chạy.</p>
+</div>
+
+<h3>What is Thread ?</h3>
+<div class="space-40">
+    <p>Thread chính là một phân đoạn (segment) của một Process. Điều này có nghĩa là một Process có thể có nhiều Thread.
+    </p>
+    <p>Một Thread có 3 trạng thái: <i>Running</i>, <i>Ready</i> và <i>Blocked</i></p>
+    <div class="text-center">
+        <img src="/blog/assets/imgs/process-and-thread.png">
+    </div>
+</div>
+
+<h3>Compare Process and Thread</h3>
+<div class="space-40">
+    <p>Process luôn chiếm nhiều resource (vùng nhớ, CPU, ...) hơn Thread. Do đó thời gian create, terminate hay switch
+        context của một Thread sẽ ít hơn so với Process.</p>
+    <p>Một Process sẽ không chia sẽ vùng nhớ với các Process khác. Nhưng Thread thì ngược lại, Vì Thread sử dụng chung
+        vùng nhớ của Process nên tất cả Thread chạy trong một Process sẽ chia sẻ chung vùng nhớ của Process đó.</p>
+    <p>Khi một Process bị block, những Process khác cũng không được thực thi. Nhưng đối với Thread, những Thread khác
+        vẫn có thể chạy bình thường khi có một Thread bị block.</p>
+</div>
