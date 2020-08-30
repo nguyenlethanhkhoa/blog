@@ -1,7 +1,7 @@
 body {
-	font-family: "Nunito";
-	font-size: 20px;
-	font-weight: 500;
+    font-family: "Nunito";
+    font-size: 20px;
+    font-weight: 500;
 }
 
 h1,
@@ -10,46 +10,54 @@ h3,
 h4,
 h5,
 h6 {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 .content-container {
-	position: fixed;
-	top: 0;
-	left: 240px;
-	right: 0;
-	bottom: 0;
+    position: fixed;
+    top: 0;
+    left: 240px;
+    right: 0;
+    bottom: 0;
 }
 
 .content {
-	padding: 25px 50px;
+    padding: 25px 50px;
 }
 
 pre {
-	background: #353535;
-	color: white;
-	padding: 25px 5px;
-	font-weight: bold;
+    background: #353535;
+    color: white;
+    padding: 25px 5px;
+    font-weight: bold;
+}
+
+.space-20 {
+    padding-left: 20px;
 }
 
 .space-40 {
-	padding-left: 40px;
+    padding-left: 40px;
+}
+
+.space-60 {
+    padding-left: 60px;
 }
 
 .space-80 {
-	padding-left: 80px;
+    padding-left: 80px;
 }
 
 span {
-	font-size: 15px;
+    font-size: 15px;
 }
 
 .no-focused {
-	outline: none;
+    outline: none;
 }
 
 .base-line {
-	vertical-align: baseline;
+    vertical-align: baseline;
 }
 
 .block {
@@ -62,4 +70,24 @@ span {
     border-radius: 5px;
     margin-right: 10px;
     cursor: pointer;
+}
+
+.compare-table {
+    font-size: 15px;
+}
+
+.compare-table th,
+.compare-table td {
+    vertical-align: top;
+    border: 1px solid #d0d0d0;
+    padding: 5px;
+}
+
+.no-border-table th,
+.no-border-table td {
+    border: none;
+}
+
+.references {
+    display: none;
 }

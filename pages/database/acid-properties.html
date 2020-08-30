@@ -1,0 +1,78 @@
+<p>
+    <strong>ACID</strong> là viết tắt của 4 tiêu chuẩn trong một <strong>DBMS</strong> (Database
+    Management System)
+</p>
+<p>
+    Khi một <strong>DBMS</strong> tuân thủ tiêu chuẩn <strong>ACID</strong> thì có thể chắc chắn
+    rằng dữ liệu trong Database đó vẫn chính xác và nhất quán cho dù có bất kỳ lỗi gì xảy ra.
+</p>
+<br />
+<h3>Atomicity</h3>
+<div class="space-60">
+    <p>
+        Như chúng ta đã biết, trong database, việc sử dụng <strong>Transaction</strong> là cách duy
+        nhất để chúng ta có thể truy cập và sửa đổi dữ liệu.
+    </p>
+    <p>
+        Khi nhiều câu query chạy trong <strong>Transaction</strong>, chỉ cần một câu query xảy ra
+        lỗi thì <strong>Transaction</strong> đó được xem là thất bại và không có bất kỳ câu query
+        nào thành công.
+    </p>
+    <p>
+        Chúng ta có thể thấy rằng, Transaction chỉ có 2 trạng thái duy nhất. Hoặc là thành công,
+        hoặc là thất bại.
+    </p>
+    <p>
+        Đó cũng chính là tiêu chuẩn <strong>Atomicity</strong>. Hoặc là tất cả thành công hoặc không
+        có gì xảy ra.
+    </p>
+</div>
+<br />
+<h3>Consistency</h3>
+<div class="space-60">
+    <p>
+        Trong trường hợp account A có 400$ và thực hiện 2 Transaction là -100$ và -200$. Nếu cả 2
+        Transaction được thực hiện cùng lúc thì Account A còn 200$ mà đúng ra thì Account A chỉ còn
+        100$.
+    </p>
+    <p>
+        Do đó, tiêu chuẩn <strong>Consistency</strong> được đưa ra để đảm bảo rằng các Transaction
+        nên được thực hiện tuần tự để đảm bảo tính nhất quán của dữ liệu.
+    </p>
+</div>
+<br />
+<h3>Isolation</h3>
+<div class="space-60">
+    <p>Tiêu chuẩn <strong>Isolation</strong> bổ sung cho <strong>Consistency</strong></p>
+    <p>
+        Ngoài việc được thực thi một cách tuần tự, một Transaction không thể đọc cũng như thay đổi
+        dữ liệu của một Transaction khác.
+    </p>
+</div>
+<br />
+<h3>Durability</h3>
+<div class="space-60">
+    <p>
+        Khi một Transaction được thực thi thành công, những thay đổi dữ liệu trong database chắc
+        chắn sẽ được thực hiện ngay cả khi hệ thống xảy ra lỗi.
+    </p>
+</div>
+<br />
+<p>
+    Tiêu chuẩn <strong>ACID</strong> được thiết kế như các nguyên tắc phục hồi cơ sở dữ liệu theo
+    hướng giao dịch (<strong>principles of transaction-oriented database recovery</strong>).
+</p>
+<p>Tất cả <strong>Relational DBMS</strong> đều tuân thủ tiêu chuẩn <strong>ACID</strong></p>
+<div class="hide">
+    <p>
+        <a
+            href="https://beginnersbook.com/2015/04/acid-properties-in-dbms/#:~:text=Consistency%3A%20To%20preserve%20the%20consistency,to%20account%20B%20%26%20C%20both."
+            >https://beginnersbook.com/2015/04/acid-properties-in-dbms/#:~:text=Consistency%3A%20To%20preserve%20the%20consistency,to%20account%20B%20%26%20C%20both</a
+        >
+    </p>
+    <p>
+        <a href="https://database.guide/what-is-acid-in-databases/"
+            >https://database.guide/what-is-acid-in-databases/</a
+        >
+    </p>
+</div>

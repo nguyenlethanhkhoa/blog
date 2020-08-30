@@ -1,0 +1,209 @@
+<h3>What are differences between SQL and NoSQL ?</h3>
+<table class="compare-table">
+    <thead>
+        <tr>
+            <th width="10%"></th>
+            <th width="45%" class="text-center"><strong>SQL</strong></th>
+            <th width="45%" class="text-center"><strong>No SQL</strong></th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Data Storage Model -->
+        <tr>
+            <td><strong>Data Storage Model</strong></td>
+            <td>
+                <table class="no-border-table">
+                    <tbody>
+                        <tr>
+                            <td width="150px"><strong>Predefined Schema</strong></td>
+                            <td>(number, name and data type of columns are fixed).</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <strong>-</strong> Support Premitive and Document data types
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="no-border-table">
+                    <tbody>
+                        <tr>
+                            <td colspan="3">
+                                <strong>- Dynamic Schema</strong> (data is unstructured)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><strong>- </strong>Support more complex data types</td>
+                        </tr>
+                        <tr>
+                            <td width="20px"></td>
+                            <td width="125px"><strong>+ Document</strong></td>
+                            <td>(JSON, XML)</td>
+                        </tr>
+                        <tr>
+                            <td width="20px"></td>
+                            <td width="125px" colspan="2">
+                                <strong>+ Key-value</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="20px"></td>
+                            <td width="125px"><strong>+ Wide columns</strong></td>
+                            <td>(Table with rows and dyamic column)</td>
+                        </tr>
+                        <tr>
+                            <td width="20px"></td>
+                            <td width="125px" colspan="2"><strong>+ Graph</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <!-- Primary purpose -->
+        <tr>
+            <td><strong>Primary purpose</strong></td>
+            <td>General Purpose</td>
+            <td>
+                <table class="no-border-table">
+                    <tr>
+                        <td width="125px"><strong>Document:</strong></td>
+                        <td>General purpose</td>
+                    </tr>
+                    <tr>
+                        <td width="125px"><strong>Key-value:</strong></td>
+                        <td>Large amounts of data with simple lookup queries</td>
+                    </tr>
+                    <tr>
+                        <td width="125px"><strong>Wide-column:</strong></td>
+                        <td>Large amounts of data with predictable query patterns</td>
+                    </tr>
+                    <tr>
+                        <td width="125px"><strong>Graph:</strong></td>
+                        <td>Analyzing and traversing relationships between connected data</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <!-- Scaling Ability -->
+        <tr>
+            <td><strong>Scaling</strong></td>
+            <td>Vertical Scale (Scale up)</td>
+            <td>Horizontal Scale (Scale out)</td>
+        </tr>
+        <!-- Hierarchical data storage -->
+        <tr>
+            <td><strong>Hierarchical data storage</strong></td>
+            <td>Not suitable for hierarchical data storage</td>
+            <td>
+                More suitable for the hierarchical data store as it supports key-value pair method.
+            </td>
+        </tr>
+        <!-- Relational -->
+        <tr>
+            <td><strong>Relational</strong></td>
+            <td>Supported</td>
+            <td>Non Relational (Distributed Database)</td>
+        </tr>
+        <!-- Base Model -->
+        <tr>
+            <td><strong>Model</strong></td>
+            <td><a href="#/pages/database/acid-properties.html">ACID</a></td>
+            <td>
+                Base (Basically Available, Soft state,
+                <a href="#pages/database/strong-consistency-and-eventual-consistency.html"
+                    >Eventually Consistency</a
+                >) is a model of many NoSQL systems
+            </td>
+        </tr>
+        <!-- ACID Transactions -->
+        <tr>
+            <td><strong>ACID Transactions</strong></td>
+            <td>Supported</td>
+            <td>Most do not support. But some still support.</td>
+        </tr>
+        <!-- Consistency -->
+        <tr>
+            <td><strong>Consistency</strong></td>
+            <td>
+                <a href="#pages/database/strong-consistency-and-eventual-consistency.html"
+                    >Strong Consistency</a
+                >
+            </td>
+            <td>
+                <a href="#pages/database/strong-consistency-and-eventual-consistency.html"
+                    >Eventual Consistency</a
+                >
+            </td>
+        </tr>
+        <!-- Joins -->
+        <tr>
+            <td><strong>Joins</strong></td>
+            <td>Typically required</td>
+            <td>Typically not required</td>
+        </tr>
+        <!-- ORM Require -->
+        <tr>
+            <td><strong>ORM Require</strong></td>
+            <td>Required</td>
+            <td>Many do not required</td>
+        </tr>
+    </tbody>
+</table>
+<br />
+<h3>Why SQL is hard to scale out ?</h3>
+<div class="space-60">
+    <p>
+        Vì gần như tất cả các <strong>RDBMS</strong> đều tuân thủ
+        <strong><a href="">ACID</a></strong
+        >.
+    </p>
+    <p>
+        Trong môi trường <strong>Distributed Database</strong>, việc đảm bảo tính đúng đắn của dữ
+        liệu thì cần phải có một kênh giao tiếp phụ trợ nhanh để đồng bộ hóa dữ liệu giữa các
+        server.
+    </p>
+    <p>Điều này sẽ trở nên khó khăn hơn rất nhiều khi chúng ta có thêm nhiều server.</p>
+    <p>
+        Vì càng cập nhật cho nhiều server thì càng tốn nhiều thời gian. Lúc này ta sẽ đối mặt với
+        bài toán performance.
+    </p>
+</div>
+<br />
+<h3>Why NoSQL is easy to scale out ?</h3>
+<div class="space-60">
+    <p>
+        Vì đa phần các NoSQL Database chỉ hỗ trợ
+        <strong><a href="">Eventual Consistency</a></strong
+        >. Điều đó khiến cho NoSQL không nhất thiết phải đảm bảo tính đúng đắn của dữ liệu khi trả
+        về.
+    </p>
+    <p>
+        Việc này khiến NoSQL đơn giản hơn rất nhiều trong môi trường
+        <strong>Distributed Database</strong>
+    </p>
+</div>
+<br />
+<h3>When should we use SQL instead of NoSQL ?</h3>
+<div class="space-60">
+    <p>
+        - Khi chúng ta cần thể hiện rõ ràng mối quan hệ các dữ liệu (như trong report hoặc phân tích
+        dữ liệu).
+    </p>
+    <p>
+        - Khi chúng ta không thể chấp nhận sự sai sót mà cần đảm bảo tính đúng đắn và toàn vẹn của
+        dữ liệu.
+    </p>
+    <p>
+        - Khi sự tăng trưởng về số lượng cũng như kiểu dữ liệu không quá nhiều và có thể dự đoán
+        được.
+    </p>
+</div>
+<div class="references">
+    <p>
+        <a href="https://www.mongodb.com/nosql-explained/nosql-vs-sql"
+            >https://www.mongodb.com/nosql-explained/nosql-vs-sql</a
+        >
+    </p>
+</div>

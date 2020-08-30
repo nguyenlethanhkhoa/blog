@@ -1,0 +1,44 @@
+<h3>Eventual Consistency</h3>
+<div class="space-60">
+    <p><strong>Eventual Consistency</strong> hay còn gọi là <strong>Weak Consistency</strong></p>
+    <p>
+        Khi sử dụng nhiều replica (bản sao) cho một CSDL, giả sử có một write request đến một
+        replica (insert, update, delete dữ liệu) thì chúng ta phải làm sao cho các replica còn lại
+        cũng nhận được request tương ứng để đồng bộ dữ liệu.
+    </p>
+    <p>
+        Việc đồng bộ dữ liệu này sẽ tốn thời gian (có thể rất nhỏ), nhưng trong khoảng thời gian đó,
+        nếu có một read request đến một replica chưa đồng bộ xong thì request đó sẽ nhận được dữ
+        liệu cũ (stale data)
+    </p>
+    <p>
+        Do đó, sau khi một cập nhật được diễn ra, các lần đọc sau đó không đảm bảo sẽ luôn trả về
+        giá trị mới được cập nhật mà có thể trả về giá trị cũ
+    </p>
+</div>
+<br />
+<h3>Strong Consistency</h3>
+<div class="space-60">
+    <p>
+        Sau khi một cập nhật được diễn ra thì tất cả các lần đọc dữ liệu sau đó đều trả về giá trị
+        mới được cập nhật.
+    </p>
+    <p>
+        Tương tự như Eventual Consistency, tuy nhiên để đảm bảo tính nhất quán thì trong trường hợp
+        Strong Consistency toàn bộ các replica sẽ bị delay (trạng thái bận) cho đến khi quá trình
+        đồng bộ hoàn tất.
+    </p>
+    <p>
+        Chỉ đến khi dữ liệu giữa các replica đã nhất quán thì mới trả về kết quả cho client, do đó
+        nó sẽ đảm bảo mọi read request đến sau luôn lấy được dữ liệu mới nhất
+    </p>
+</div>
+<br />
+<p>
+    <strong>Strong Consistency</strong> cho phép dữ liệu luôn nhất quán và được cập nhật mới nhất,
+    nhưng nó có độ trễ cao
+</p>
+<p>
+    <strong>Eventual Consistency</strong> thì có độ trễ thấp, kết quả trả về nhanh nhưng dữ liệu
+    nhận được có thể không phải mới nhất.
+</p>
