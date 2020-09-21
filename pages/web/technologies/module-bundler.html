@@ -1,0 +1,38 @@
+<h3>What is a Module Bundler ?</h3>
+<div class="space-60">
+	<p>
+		Module Bundler là một công cụ dùng để đóng gói Javascript hoặc CSS từ nhiều file khác nhau
+		(bao gồm <i>Dependencies</i>) thành một file duy nhất.
+	</p>
+	<p>
+		Thông thường, Module Bundler sẽ bắt đầu với một <strong>entry file</strong>(như index.js,
+		style.css, ...). Từ đó, Module Bundler sẽ đóng gói tất cả code cần thiết vào
+		<strong>entry file</strong> đó.
+	</p>
+</div>
+<br />
+<h3>Why we need Module Bundler ?</h3>
+<div class="space-60">
+	<p>
+		Mọi browser luôn giới hạn số lượng kết nối đồng thời tới một domain cũng như giới hạn kết
+		nối đồng thời tổng thể. Vì vậy, việc đóng gói thành một file duy nhất giúp tiết kiệm kết nối
+		tới server nhờ đó ta có thể tối ưu performance khi load trang.
+	</p>
+	<p>
+		Khi đóng gói thành một file duy nhất cũng giúp việc cache Javascript, CSS trở nên hiệu quả
+		hơn. (Need to clear how browser cache Js and CSS to determine exactly effect of Bunding)
+	</p>
+	<p>
+		Module Bundler cũng có thể giúp minify và loại bỏ những đoạn code dư thừa không dùng đến để
+		giảm thiểu dung lượng file.
+	</p>
+</div>
+<br />
+<h3>Stages of Module Bundler</h3>
+<div class="space-60">
+	<p>Một <strong>Module Bundler</strong> thông thường sẽ gồm 2 giai đoạn chính.</p>
+	<div class="space-60">
+		<p><strong>Dependency Resolution</strong></p>
+		<p><strong>Packing</strong></p>
+	</div>
+</div>

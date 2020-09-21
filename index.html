@@ -1,164 +1,104 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        
+        <title>Blog - Khoa Nguyen</title>
+        <link rel="shortcut icon" href="assets/imgs/favicon.ico" type="image/x-icon">
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Bootstrap CSS -->
+		<link
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+			crossorigin="anonymous"
+		/>
+		<link href="assets/styles/hierarchy-menu.css" rel="stylesheet" />
+		<link href="assets/styles/trackpad-scroll-emulator.css" rel="stylesheet" />
+		<link href="assets/styles/font-nunito.css" rel="stylesheet" />
+		<link href="assets/styles/styles.css" rel="stylesheet" />
 
-    <!-- Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="assets/styles/nav-side-menu.css" rel="stylesheet">
-    <link href="assets/styles/trackpad-scroll-emulator.css" rel="stylesheet" />
-    <link href="assets/styles/font-nunito.css" rel="stylesheet">
-    <link href="assets/styles/styles.css" rel="stylesheet">
+		<title>Blog - Khoa Nguyen</title>
+	</head>
 
-    <title>Blog - Khoa Nguyen</title>
-</head>
+	<body>
+		<div class="hierarchy-menu"></div>
 
-<body>
+		<div class="content-container scrollable">
+			<div class="content-wrapper">
+				<div class="tse-scrollable">
+					<div class="tse-content">
+						<div class="content"></div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-    <div class="nav-side-menu">
-        <div class="brand">Khoa Nguyen</div>
-        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-        <div class="menu-list">
-            <ul id="menu-content" class="menu-content collapse out">
-                <!-- <li data-toggle="collapse" data-target="#framework-from-scratch" class="collapsed active">
-                    <a href="#"></i>Framework from scratch<span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="framework-from-scratch">
-                    <li><a href="#pages/framework-from-scratch/introduction.html">Introduction</a></li>
-                    <li><a href="#pages/framework-from-scratch/getting-started.html">Getting Started</a></li>
-                    <li><a href="#pages/framework-from-scratch/front-controller.html">Front Controller</a></li>
-                    <li><a href="#pages/framework-from-scratch/routing.html">Routing</a></li>
-                    <li><a href="#pages/framework-from-scratch/controller-resolver.html">Controller Resolver</a></li>
-                </ul> -->
-                <li data-toggle="collapse" data-target="#javascript" class="collapsed active">
-                    <a href="#"></i>JavaScript<span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="javascript">
-                    <li><a href="#pages/javascript/under-the-hood.html">Under the hood</a></li>
-                    <li><a href="#pages/javascript/memory-management.html">Memory Management and Garbage Collection</a>
-                    </li>
-                    <li><a href="#pages/javascript/callback.html">Callback</a></li>
-                    <li><a href="#pages/javascript/promise.html">Promise</a></li>
-                    <li><a href="#pages/javascript/Observable.html">Observable</a></li>
-                    <li><a href="#pages/javascript/workers.html">Workers</a></li>
-                    <li><a href="#pages/javascript/strict-mode-in-javascript.html">Strict mode in JavaScript</a></li>
-                    <li><a href="#pages/javascript/copy-object.html">Copy Object</a></li>
-                    <li><a href="#pages/javascript/rest-parameters.html">Rest Parameters</a></li>
-                    <li><a href="#pages/javascript/losing-this.html">Losing "this"</a></li>
-                    <li><a href="#pages/javascript/decorators-and-forwarding.html">Decorators and Forwarding</a></li>
-                </ul>
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+			crossorigin="anonymous"
+		></script>
+		<script src="assets/scripts/jquery.trackpad-scroll-emulator.min.js"></script>
+		<script src="assets/scripts/hierarchy-menu.js"></script>
 
-                <li data-toggle="collapse" data-target="#typescript" class="collapsed active">
-                    <a href="#"></i>Typescript<span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="typescript">
+		<script src="assets/scripts/app.js"></script>
 
-                </ul>
+		<script>
+			$("document").ready(function () {
+				app.init();
+				app.slide(".slider");
+            });
 
-                <li data-toggle="collapse" data-target="#php" class="collapsed active">
-                    <a href="#"></i>PHP<span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="php">
-                    <li><a href="#pages/php/psr-14-event-dispatcher.html">PSR-14 Event Dispatcher</a></li>
-                </ul>
-
-                <li data-toggle="collapse" data-target="#software-architect" class="collapsed active">
-                    <a href="#"></i>Software Architect<span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="software-architect">
-                    <li><a href="#pages/software-architect/event-driven.html">Event-Driven (EDA)</a></li>
-                </ul>
-
-                <li data-toggle="collapse" data-target="#data-structure-and-algorithms" class="collapsed active">
-                    <a href="#"></i>Data structure and Algorithms<span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="data-structure-and-algorithms">
-                    <li><a href="#pages/data-structure-and-algorithms.html">Data structure and Algorithms</a></li>
-                </ul>
-
-                <li data-toggle="collapse" data-target="#machine-learning" class="collapsed active">
-                    <a href="#"></i>Machine Learning<span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="machine-learning">
-                    <li><a href="#pages/machine-learning/ai-machine-learning-and-deep-learning.html">AI, Machine
-                            Learning and Deep Learning</a></li>
-                    <li><a href="#pages/machine-learning/precision-and-recall.html">Precision and Recall</a></li>
-                    <li><a href="#pages/machine-learning/image-feature-extraction.html">Image Feature Extraction</a>
-                    </li>
-                    <li><a href="#pages/machine-learning/detect-person-with-inria-dataset.html">Detect person with INRIA
-                            Dataset</a></li>
-                </ul>
-
-                <li data-toggle="collapse" data-target="#speed-up-website" class="collapsed active">
-                    <a href="#"></i>Speed up Website<span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="speed-up-website">
-                    <li><a href="#pages/javascript/strict-mode-in-javascript.html">CDN và Transparent Caching trong
-                            CDN</a></li>
-                </ul>
-
-                <li data-toggle="collapse" data-target="#database" class="collapsed active">
-                    <a href="#"></i>Database<span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="database">
-                    <li><a href="#pages/database/storage-engines.html">Storage Engines</a></li>
-                    <li><a href="#pages/database/acid-properties.html">ACID Properties</a></li>
-                    <li><a href="#pages/database/base-model.html">BASE Model</a></li>
-                    <li><a href="#pages/database/strong-consistency-and-eventual-consistency.html">Strong and Eventual Consistency</a></li>
-                    <li><a href="#pages/database/sql-and-nosql.html">SQL and NoSQL</a></li>
-                </ul>
-
-                <li data-toggle="collapse" data-target="#others" class="collapsed active">
-                    <a href="#"></i>Others<span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="others">
-                    <li><a href="#pages/others/process-and-thread.html">Process and Thread</a></li>
-                    <li><a href="#pages/others/compiler-overview.html">Compiler Overview</a></li>
-                </ul>
-
-                <li data-toggle="collapse" data-target="#references" class="collapsed active">
-                    <a href="#"></i>References<span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="references">
-                    <li><a href="#pages/references.html">References</a></li>
-                </ul>
-            </ul>
-        </div>
-    </div>
-    <div class="content-container scrollable">
-        <div class="content-wrapper">
-            <div class="tse-scrollable">
-                <div class="tse-content">
-                    <div class="content">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <script src="assets/scripts/jquery.trackpad-scroll-emulator.min.js"></script>
-
-    <script src="assets/scripts/app.js"></script>
-
-    <script>
-        $('document').ready(function () {
-            app.init();
-            app.slide('.slider');
-        });
-    </script>
-</body>
-
+            $('.hierarchy-menu').initMenu({
+                items: {
+                    'Languages': {
+                        'Javascript': {
+                            'Event Loop': '#pages/javascript/event-loop.html',
+                            'Memory Management': '#pages/javascript/memory-management.html',
+                            'Callback': '#pages/javascript/callback.html',
+                            'Promise': '#pages/javascript/promise.html',
+                            'Observable': '#pages/javascript/Observable.html',
+                            'Workers': '#pages/javascript/workers.html',
+                            'Strict mode': '#pages/javascript/strict-mode-in-javascript.html',
+                            'Copy Object': '#pages/javascript/copy-object.html',
+                            'Rest Parameters': '#pages/javascript/rest-parameters.html',
+                            'Losing "this"': '#pages/javascript/losing-this.html',
+                            'Decorators and Forwarding': '#pages/javascript/decorators-and-forwarding.html'
+                        }
+                    },
+                    'Machine Learning': {
+                        'AI, Machine Learning and Deep Learning': '#pages/machine-learning/ai-machine-learning-and-deep-learning.html',
+                        'Precision and Recall': '#pages/machine-learning/precision-and-recall.html',
+                        'Image Feature Extraction': '#pages/machine-learning/image-feature-extraction.html',
+                        'Detect person with INRIA Dataset': '#pages/machine-learning/detect-person-with-inria-dataset.html'
+                    },
+                    'Web': {
+                        'Database': {
+                            'Storage Engines': '#pages/database/storage-engines.html',
+                            'ACID Properties': '#pages/database/acid-properties.html',
+                            'BASE Model': '#pages/database/base-model.html',
+                            'Strong and Eventual Consistency': '#pages/database/strong-consistency-and-eventual-consistency.html',
+                            'SQL and NoSQL': '#pages/database/sql-and-nosql.html'
+                        },
+                        'Technologies': {
+                            'Module Bundler': '#pages/web/technologies/module-bundler.html'
+                        }
+                    },
+                    'Programing': {
+                        'Process and Thread': '#pages/others/process-and-thread.html'
+                    }
+                }
+            })
+		</script>
+	</body>
 </html>

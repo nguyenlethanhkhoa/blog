@@ -1,0 +1,146 @@
+*, *:before, *:after { box-sizing: inherit; }
+
+.hierarchy-menu .title{
+  text-decoration:none;
+  color: #ccc;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.hierarchy-menu .content {
+  position: absolute;
+  left: 350px;
+  width:70%;
+}
+
+
+.hierarchy-menu {
+  position:fixed;
+  color: #fff;
+  width: 240px;
+  background: #222;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+}
+
+.hierarchy-menu a { 
+  color: #fff;
+  text-decoration: none;
+}
+
+/* List */
+.hierarchy-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0 0 0;
+  position: relative;
+}
+
+.hierarchy-menu ul ul:before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  bottom: 20px;
+  left: 6px;
+  border-left: 2px dashed #ffffff;
+}
+
+.hierarchy-menu > ul {
+  padding: 5px 0 5px 25px;
+}
+
+.hierarchy-menu > ul ul {
+  padding-left: 16px;
+}
+
+/* List items */
+.hierarchy-menu ul li {
+  display: block;
+  position: relative;
+}
+
+.hierarchy-menu > ul ul li:before {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 15px;
+  border-bottom: 2px solid #ffffff;
+  position: absolute;
+  left: -10px;
+  top: 16px;
+}
+
+.hierarchy-menu > ul ul li:after {
+  content: '';
+  display: block;
+  height: 60px;
+  width: 0;
+  border-left: 2px solid #ffffff;
+  position: absolute;
+  left: -10px;
+  top: -39px;
+}
+
+.hierarchy-menu > ul ul li.sub-nav:before {
+  width: 12px;
+}
+
+.hierarchy-menu > ul ul li:first-child:after { 
+  height: 0px;
+  top: -10px;
+}
+
+/* Links */
+.hierarchy-menu ul a {
+  display: block;
+  padding: 5px 20px;
+  height: 25px;
+  position: relative;
+  color: rgba(255,255,255,0.5);
+  transition: 100ms;
+  padding-right: 5px;
+  overflow: hidden;
+}
+
+.hierarchy-menu ul a:hover {
+  color: rgba(255,255,255,1);
+}
+
+.hierarchy-menu ul a.active {
+  color: white;
+}
+
+.hierarchy-menu li.sub-nav > a:before {
+  position: absolute;
+  left: 3px;
+  top: 16px;
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.hierarchy-menu li.sub-nav.open > a:before {
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.hierarchy-menu li.sub-nav.open > a {
+  color: rgba(255,255,255,1);
+}
+.hierarchy-menu li.sub-nav > ul {
+  display: block;
+  margin-top: -5px;
+}
+.hierarchy-menu li.sub-nav.open > ul {
+  display: block;
+}
+
+.hierarchy-menu .active {
+  color: white;
+}
