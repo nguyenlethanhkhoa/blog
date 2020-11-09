@@ -1,71 +1,122 @@
-<p><strong>If agile is about building software in tiny increments, how can we see a big picture to design the software ?</strong></p>
-<p><strong>Answer:</strong></p>
+<h3>What is software design ?</h3>
 <div class="space-60">
-    <p>In an agile team, the big picture evolves along with the software. With each iteration, the team improves the design of the system so that it is as good as it can be for the system</p>
-    <p>Instead of trying to build the infrastructure to support the future requirements, we focus on the current structure of the system, making it as good as it can be.</p>
+    <p>The UML diagrams may represent parts of design, but it is not the design</p>
+    <p>The design of a software project is an abstract concept</p>
+    <p>The design can be represented by many different media, but its final embodiment is source code (the detailed shape and structure of each module, class, and method)</p>
+    <br>
 </div>
 <br>
-<br>
-<p><strong>How to know a software design is poor ?</strong></p>
-<p><strong>Answer:</strong></p>
+<h3>The factors downgrade the design</h3>
 <div class="space-60">
-    <p><strong>Rigidity</strong> - The design is hard to change</p>
-    <p><strong>Fragility</strong> - The design is easy to break</p>
-    <p><strong>Immobility</strong> - The design is hard to reuse</p>
-    <p><strong>Viscosity</strong> - It is hard to do the right thing</p>
-    <p><strong>Needless Complexity</strong> - Overdesign</p>
-    <p><strong>Needless Repetition</strong> - Mouse abuse</p>
-    <p><strong>Opacity</strong> - Disorganized expression</p>
+    <p><strong>Rigidity</strong> - <abbr data-internal-target='question-2' title="How to know the design hard to change ?">The design is hard to change</abbr></p>
+    <p><strong>Fragility</strong> - <abbr data-internal-target='question-3' title="How to know the design easy to break ?">The design is easy to break</abbr></p>
+    <p><strong>Immobility</strong> - <abbr data-internal-target='question-4' title="How to evaluate the design hard to reuse ?">The design is hard to reuse</abbr></p>
+    <p><strong>Viscosity</strong> - <abbr data-internal-target='question-6' title="What does 'hard to do the right thing' mean?">It is hard to do the right thing</abbr></p>
+    <p><strong><abbr data-internal-target="question-7" title="How to know the design is over complex ?">Needless Complexity</abbr></strong></p>
+    <p><strong><abbr data-internal-target="question-9" title="What does 'opacity' stand for in software design ?">Opacity</abbr></strong> - Disorganized expression</p>
+    <p>
+        <strong>
+            <abbr
+                data-internal-target="question-8"
+                title="Because a function may be used in everywhere. How to consider that function call is a repetition or reuse action ?">
+                Needless Repetition
+            </abbr>
+        </strong>
+    </p>
+    <div class="space-60">
+        <p>
+            <abbr data-internal-target="question-10" title="Why does code repetition make the developers miss the abstraction ?">
+                When the code repeated to many times, the developers may miss an abstraction.
+            </abbr>
+        </p>
+        <p>When one of the repetitions exists bugs, you need to find and fix all the repetitions.</p>
+        <p>However, since each repetition is slightly different from every other, the fix is not always the same</p>
+    </div>
 </div>
-<br>
-<br>
-<p><strong>How to know and evaluate a design is hard to change ?</strong></p>
-<div class="space-60">
-    <p>A design is hard to change if a single change causes a cascade of subsequent changes in dependent modules</p>
-    <p>When take a change in a system, developers need to estimate for that change. But later, they work through the change, they realize they need to change hug portions of the codes, modify far modules than they had estimated.</p>
-</div>
-<br>
-<br>
-<p><strong>How to know and evaluate a design is easy to break ?</strong></p>
-<div class="space-60">
-    <p>When a single change is made, the program is broken in many places.</p>
-    <p>When the developers try to fix those problems, that leads to even more problems.</p>
-    <p>When a change is made, that also makes unexpected problems.</p>
-</div>
-<br>
-<br>
-<p><strong>How to know and evaluate a design is hard to reuse ?</strong></p>
-<div class="space-60">
-    <p>When the system contains parts that could be useful in other systems</p>
-</div>
-<br>
-<br>
-<p><strong>How to know and evaluate a design is needless repedition ?</strong></p>
-<div class="space-60">
-    <p>The design contains repeating structures that could be unified under a single abstraction.</p>
-    <p>But the effort and risk involved with separating those parts from the original system are too high.</p>
 
-</div>
-<br>
-<br>
-<p><strong>How to know and evaluate a design is hard to do the right thing (Viscosity) ?</strong></p>
+
+<h3>Questions</h3>
 <div class="space-60">
-    <p>A viscous project is a project in which the design of the software is hard to preserve</p>
-    <p>Viscosity has two forms:</p>
-    <p>Viscosity of the software</p>
-    <div class="space-60">
-        <p>When faced with a change, the developers have many ways to make that change.</p>
-        <p>Some ways keep the design and some way do not.</p>
-        <p>If the ways which keep the design harder to do than rest. That is the viscosity of the software.</p>
+    <div data-target='question-1'>
+        <p><strong>Question 1: If agile is about building software in tiny increments, how can we see a big picture to design the software ?</strong></p>
+        <div class="space-60">
+            <p>In an agile team, the big picture evolves along with the software. With each iteration, the team improves the design of the system so that it is as good as it can be for the system</p>
+            <p>Instead of trying to build the infrastructure to support the future requirements, we focus on the current structure of the system, making it as good as it can be.</p>
+        </div>
     </div>
-    <p>Viscosity of the environment</p>
-    <div class="space-60">
-        <p>Viscosity of environment comes about when the development environment is slow and inefficient</p>
+    <br>
+    <div data-target="question-2">
+        <p><strong>Question 2: How to know and evaluate a design is hard to change ?</strong></p>
+        <div class="space-60">
+            <p>A design is hard to change if a single change causes a cascade of subsequent changes in dependent modules</p>
+            <p>When take a change in a system, developers need to estimate for that change. But later, they work through the change, they realize they need to change hug portions of the codes, modify far modules than they had estimated.</p>
+        </div>
     </div>
-</div>
-<br>
-<br>
-<p><strong>How to know and evaluate a design is overdesign ?</strong></p>
-<div class="space-60">
-    <p>When it contains elements that <abbr title="How to evaluate a element is currently useful or not ?">aren’t currently useful</abbr></p>
+    <br>
+    <div data-target='question-3'>
+        <p><strong>Question 3: How to know and evaluate a design is easy to break ?</strong></p>
+        <div class="space-60">
+            <p>When a single change is made, the program is broken in many places.</p>
+            <p>When the developers try to fix those problems, that leads to even more problems.</p>
+            <p>When a change is made, that also makes unexpected problems.</p>
+        </div>
+    </div>
+    <br>
+    <div data-target='question-4'>
+        <p><strong>Question 4: How to know and evaluate a design is hard to reuse ?</strong></p>
+        <div class="space-60">
+            <p>When the system contains parts that could be useful in other systems</p>
+        </div>
+    </div>
+    <br>
+    <div data-target='question-5'>
+        <p><strong>Question 5: How to know and evaluate a design is needless repedition ?</strong></p>
+        <div class="space-60">
+            <p>The design contains repeating structures that could be unified under a single abstraction.</p>
+            <p>But the effort and risk involved with separating those parts from the original system are too high.</p>
+        </div>
+    </div>
+    <br>
+    <div data-target='question-6'>
+        <p><strong>Question 6: How to know and evaluate a design is hard to do the right thing (Viscosity) ?</strong></p>
+        <div class="space-60">
+            <p>A viscous project is a project in which the design of the software is hard to preserve</p>
+            <p>Viscosity has two forms:</p>
+            <p>Viscosity of the software</p>
+            <div class="space-60">
+                <p>When faced with a change, the developers have many ways to make that change.</p>
+                <p>Some ways keep the design and some way do not.</p>
+                <p>If the ways which keep the design harder to do than rest. That is the viscosity of the software.</p>
+            </div>
+            <p>Viscosity of the environment</p>
+            <div class="space-60">
+                <p>Viscosity of environment comes about when the development environment is slow and inefficient</p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div data-target='question-7'>
+        <p><strong>Question 7: How to know and evaluate a design is overdesign ?</strong></p>
+        <div class="space-60">
+            <p>When it contains elements that <abbr title="How to evaluate a element is currently useful or not ?">aren’t currently useful</abbr></p>
+        </div>
+    </div>
+    <br>
+    <div data-target='question-8'>
+        <p><strong>Question 8: Because a function may be used in everywhere. How to consider that function call is a repetition or reuse action ?</strong></p>
+    </div>
+    <br>
+    <div data-target='question-9'>
+        <p><strong>Question 9: What does opacity stand for in software design ?</strong></p>
+        <div class="space-60">
+            <p>When developers first write a module, the code may seem clear to them</p>
+            <p>Later, after they do the other things, they may return to that module and wonder how they could have written anything so awful.</p>
+            <p>That is called <strong>opacity</strong>. So the opacity of a code block which is the level of easy to read and understand</p>
+        </div>
+    </div>
+    <br>
+    <div data-target='question-10'>
+        <p><strong>Why does code repetition make the developers miss the abstraction ?</strong></p>
+    </div>
+
 </div>

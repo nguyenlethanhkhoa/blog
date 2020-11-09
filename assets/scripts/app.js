@@ -1,16 +1,20 @@
 var app = {
 	init: function () {
-		const contentWidth = window.innerWidth - 240 - 50 - 50;
-		const contentHeight = window.innerHeight;
+		let url = window.location.href;
+		let url_part = url.split('#')
+		if (url_part.length == 2) {
+			load_content(url_part[1])
+		}
 
-		$(".scrollable").css({ width: contentWidth, height: contentHeight });
-		$(".scrollable").TrackpadScrollEmulator();
-
-		// this.initElementEvents();
+		this.initEvents();
 	},
-	initElementEvents: function () {
-		$(window).resize(function () {
-			$(".scrollable").TrackpadScrollEmulator("recalculate");
+	initEvents: function() {
+		$('body').delegate('abbr', 'click', function () {
+			const internal_target = $(this).data('internal-target')
+
+			let internal_target_element = $(`*[data-target="${internal_target}"]`)
+			$('.content-container').animate({scrollTop: internal_target_element.offset().top}, 500); 
+			
 		});
 	},
 	slide: function (className) {
@@ -91,13 +95,7 @@ jQuery.fn.initMenu = function (opt) {
 
 		let url = $(this).attr("href");
 		url = url.substring(1, url.length);
-
-		$.ajax({
-			url: url,
-			success: function (data) {
-				$(".content").html(data);
-			},
-		});
+		load_content(url)
 	});
 
 	function add_menu_items(wrapper, items) {
@@ -134,6 +132,17 @@ jQuery.fn.initMenu = function (opt) {
 		}
 	}
 };
+
+
+const load_content = (url) => {
+
+	$.ajax({
+		url: url,
+		success: function (data) {
+			$(".content").html(data);
+		},
+	});
+}
 
 
 

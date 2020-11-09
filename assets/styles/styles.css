@@ -17,16 +17,19 @@ img {
     max-width: 100%
 }
 
+abbr {
+    text-decoration-color: red !important;
+}
+
 .content-container {
     position: fixed;
     top: 0;
     left: 240px;
     right: 0;
     bottom: 0;
-}
 
-.content {
     padding: 25px 15px;
+    overflow-y: auto;
 }
 
 pre {
