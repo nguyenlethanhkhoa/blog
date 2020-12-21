@@ -1,5 +1,4 @@
 $(document).ready(function() { 
-  jQuery.getScript("https://chicagoculinaryfx.com/read-me/prism.js")
 
   $('.sub-nav > a').click(function() {
     if ($(this).parent('.sub-nav').hasClass('open')) {
