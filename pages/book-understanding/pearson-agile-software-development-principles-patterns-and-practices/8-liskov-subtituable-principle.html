@@ -1,0 +1,56 @@
+<h3>Liskov Substituable Principle</h3>
+<div class="space-60">
+    <p>
+        Liskov Substituable Principle is one of the prime enablers of the 
+        <a href="#pages/book-understanding/pearson-agile-software-development-principles-patterns-and-practices/7-open-closed-principle.html">
+            Open-Closed Principle
+        </a>.
+    </p>
+    <p>Confirming <strong>LSP</strong> provides the substitutability of subtypes that allows a module, expressed in terms of a base type, to be extensible without modification</p>
+</div>
+<br>
+<h3>Unsubstituable</h3>
+<div class="space-60">
+    <pre>
+        class Shape() { 
+            public get_shape() {
+                // return shape
+            }
+        }
+    </pre>
+    <pre>
+        class Circle extends Shape() {
+            public draw() {
+                // draw circle
+            }
+        }
+
+        class Square extends Shape() {
+            public draw() {
+                // draw square
+            }
+        }
+    </pre>
+    <pre>
+        drawShape(shape) {
+            if (typeof shape == 'Square') {
+                shape.cast_to(Square).draw();
+            }
+            else if (typeof shape == 'Circle') {
+                shape.cast_to(Circle).draw();
+            }
+        }
+    </pre>
+    <br>
+    <p>With above design, <code>Cirle</code> and <code>Square</code> didn't override <code>draw method</code> from <code>Shape</code>.</p>
+    <p>Since <code>Cirle</code> and <code>Square</code> are not substitutable for <code>Shape</code>.</p>
+    <p><code>drawShape</code> need to inspect its argument <code>shape</code> to detect the type. So this design violated <strong>LSP</strong>.</p>
+    <p>
+        This violation forced the violation of 
+        <a href="#pages/book-understanding/pearson-agile-software-development-principles-patterns-and-practices/7-open-closed-principle.html"><strong>OCP</strong></a>.
+        <mark>
+            Thus, a violation of <strong>LSP</strong> is a latent violation of 
+            <a href="#pages/book-understanding/pearson-agile-software-development-principles-patterns-and-practices/7-open-closed-principle.html"><strong>OCP</strong></a>.
+        </mark>
+    </p>
+</div>
