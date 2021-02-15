@@ -21,6 +21,10 @@ abbr {
     text-decoration-color: red !important;
 }
 
+table tr td {
+    vertical-align: top;
+}
+
 .content-container {
     position: fixed;
     top: 0;

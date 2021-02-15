@@ -1,0 +1,58 @@
+<p><strong>Breadth First Search</strong> is usually used to <mark>find the shortest path between 2 nodes in undirected or directed, unweighted graphs.</mark></p>
+<p>Because BFS visits each node by the graph level, so the first visit of any node is alsway the shortest path from the start node.</p>
+<p>BFS ofen has 4 elements</p>
+<div class="space-60">
+    <table>
+        <tr>
+            <td><strong>graph</strong></td>
+            <td><strong>&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+            <td><p>The list of edges in the graph</p></td>
+        </tr>
+        <tr>
+            <td><strong>visited</strong></td>
+            <td><strong>&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+            <td>
+                <p>
+                    The list of visited nodes. <br>
+                    Because graph may contain cycles, we need to save the visited node for checking
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>path</strong></td>
+            <td><strong>&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+            <td><p>The list for tracking path. From this list, we can trace <mark>the shortest path between 2 nodes</mark>.</p></td>
+        </tr>
+        <tr>
+            <td><strong>queue</strong></td>
+            <td><strong>&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+            <td>
+                <p>
+                    When we go to a node, we push its children to the queue. <br>
+                    The algorithm stops when the queue is empty
+                </p>
+            </td>
+        </tr>
+    </table>
+</div>
+<pre>
+    def BFS(graph, root):
+        path = {}
+        queue = []
+        visited = {}
+            
+        queue.append(root)
+        visited[root] = True
+        
+        while len(queue):
+            node = queue.pop(0)
+            
+            if node in graph:
+                for child in graph[node]:
+                    if child not in visited:
+                        path[child] = node
+                        queue.append(child)
+                        visited[child] = True
+                    
+        return path
+</pre>

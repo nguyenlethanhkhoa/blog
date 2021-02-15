@@ -1,0 +1,109 @@
+<p>
+    <strong>Queue</strong> is an abstract data type that serves as a collection of elements and supports <mark>First In, First Out</mark> operations. <br>
+    It can be implemented by using both 
+    <a href="#pages/data-structures-and-algorithms/data-structures/array.html"><strong>array</strong></a> and 
+    <a href="#pages/data-structures-and-algorithms/data-structures/linked-list.html"><strong>linked list</strong></a>. <br>
+</p>
+<table>
+    <tr>
+        <td><strong>Accessing Time</strong></td>
+        <td><strong>&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+        <td>O(n)</td>
+    </tr>
+    <tr>
+        <td><strong>Search Time</strong></td>
+        <td><strong>&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+        <td>O(n)</td>
+    </tr>
+    <tr>
+        <td><strong>Insertion Time</strong></td>
+        <td><strong>&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+        <td>O(1)</td>
+    </tr>
+    <tr>
+        <td><strong>Deletion Time</strong></td>
+        <td><strong>&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+        <td>O(1)</td>
+    </tr>
+    <tr>
+        <td><strong>Memory Allocation</strong></td>
+        <td><strong>&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+        <td><mark>Memory is allocated at compile time</mark></td>
+    </tr>
+</table>
+<br>
+<p><strong>Priority Queue</strong></p>
+<div class="space-60">
+    <p>Priority Queue is an extension of Queue with following properties</p>
+    <div class="space-60">
+        <p>Every item has a priority associated with it.</p>
+        <p>An high priority element must be dequeued before lower one.</p>
+        <p>If two elements have the same priority, they are served according to their order in the queue.</p>
+    </div>
+    <p>A priority queue supports <strong>insert</strong>, <strong>get_highest_priority</strong> and <strong>delete_highest_priority</strong> operations. <br></p>
+    <p>
+        Priority Queue is usually implemented by 
+        <a href=""><strong>Heap</strong></a> because 
+        <a href=""><strong>Heap</strong></a> provides better performance than 
+        <a href="#pages/data-structures-and-algorithms/data-structures/array.html"><strong>Array</strong></a> and 
+        <a href="#pages/data-structures-and-algorithms/data-structures/linked-list.html"><strong>Linked List</strong></a>
+    </p>
+</div>
+<p><strong>Deque</strong></p>
+<div class="space-60">
+    <p>Deque is called <strong>Double Ended Queue</strong> or <strong>Head Tail Linked List</strong></p>
+    <p>Deque is an abstract data type that generalizes a Queue that allows to insert and delete at both ends.</p>
+</div>
+<p><strong>Circular Queue</strong></p>
+<div class="space-60">
+    <p>Circular Queue is a Queue and the last position is connected back to the first position to make a circle</p>
+    <p>Circular Queue is usually used in <strong>Memory Management</strong>, <strong>Traffic System</strong> and <strong>CPU Scheduling</strong></p>
+    <p>Circular Queue supports operations</p>
+    <div class="space-60">
+        <table>
+            <tr>
+                <td><mark>front</mark></td>
+                <td><strong>&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+                <td>The first element from queue</td>
+            </tr>
+            <tr>
+                <td><mark>rear</mark></td>
+                <td><strong>&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+                <td>The last element from queue</td>
+            </tr>
+            <tr>
+                <td><mark>check_full</mark></td>
+                <td><strong>&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+                <td>The circular queue full when (<mark>rare == queue_size - 1 && front == 0) || (rare == front - 1)</mark></td>
+            </tr>
+            <tr>
+                <td><mark>enqueue</mark></td>
+                <td><strong>&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+                <td>
+                    <p>
+                        Insert an element in the queue <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <u>Step 1</u> : Check the queue is full or not <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <u>Step 2</u> : Set position of next rare <mark>rare = (rare + 1) % queue_size</mark> <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <u>Step 3</u> : Set data into the rare
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td><mark>dequeue</strong></td>
+                <td><strong>&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+                <td>
+                    <p>
+                        Delete an element in the queue <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <u>If the queue has only one element</u> : <mark>front = rare = -1</mark> <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <u>If the queue has many elements</u> : &nbsp;&nbsp;&nbsp; <mark>front = (front + 1) % queue_size</mark> <br>
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
