@@ -102,3 +102,8 @@ span {
 .references {
     display: none;
 }
+
+.arrow {
+    font-size: 25px;
+    font-weight: bold;
+}

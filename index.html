@@ -1,160 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<!-- Required meta tags -->
-		<meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        
-        <title>Blog - Khoa Nguyen</title>
-        <link rel="shortcut icon" href="assets/imgs/favicon.ico" type="image/x-icon">
 
-		<!-- Bootstrap CSS -->
-		<link href="assets/styles/bootstrap-4.0.0.css" rel="stylesheet" />
-		<link href="assets/styles/hierarchy-menu.css" rel="stylesheet" />
-		<link href="assets/styles/trackpad-scroll-emulator.css" rel="stylesheet" />
-		<link href="assets/styles/font-nunito.css" rel="stylesheet" />
-		<link href="assets/styles/styles.css" rel="stylesheet" />
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-		<title>Blog - Khoa Nguyen</title>
-	</head>
+    <title>Blog - Khoa Nguyen</title>
+    <link rel="shortcut icon" href="assets/imgs/favicon.ico" type="image/x-icon">
 
-	<body>
-		<div class="hierarchy-menu"></div>
+    <!-- Bootstrap CSS -->
+    <link href="assets/styles/bootstrap-4.0.0.css" rel="stylesheet" />
+    <link href="assets/styles/hierarchy-menu.css" rel="stylesheet" />
+    <link href="assets/styles/trackpad-scroll-emulator.css" rel="stylesheet" />
+    <link href="assets/styles/font-nunito.css" rel="stylesheet" />
+    <link href="assets/styles/styles.css" rel="stylesheet" />
 
-		<div class="content-container">
-			<div class="content space-60"></div>
-		</div>
+    <title>Blog - Khoa Nguyen</title>
+</head>
 
-		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-		<script src="assets/scripts/jquery-3.4.1.min.js"></script>
-		<script src="assets/scripts/popper.min.js"></script>
-		<script src="assets/scripts/bootstrap-4.0.0.min.js"></script>
-		<script src="assets/scripts/hierarchy-menu.js"></script>
-		<script src="assets/scripts/app.js"></script>
+<body>
+    <div class="hierarchy-menu"></div>
 
-		<script>
-			$("document").ready(function () {
-				app.init();
-				app.slide(".slider");
-            });
+    <div class="content-container">
+        <div class="content space-60"></div>
+    </div>
 
-            $('.hierarchy-menu').initMenu({
-                items: {
-                    'Languages': {
-                        'Javascript': {
-                            'Event Loop': '#pages/javascript/event-loop.html',
-                            'Memory Management': '#pages/javascript/memory-management.html',
-                            'Callback': '#pages/javascript/callback.html',
-                            'Promise': '#pages/javascript/promise.html',
-                            'Observable': '#pages/javascript/Observable.html',
-                            'Workers': '#pages/javascript/workers.html',
-                            'Strict mode': '#pages/javascript/strict-mode-in-javascript.html',
-                            'Copy Object': '#pages/javascript/copy-object.html',
-                            'Rest Parameters': '#pages/javascript/rest-parameters.html',
-                            'Losing "this"': '#pages/javascript/losing-this.html',
-                            'Decorators and Forwarding': '#pages/javascript/decorators-and-forwarding.html'
-                        }
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="assets/scripts/jquery-3.4.1.min.js"></script>
+    <script src="assets/scripts/popper.min.js"></script>
+    <script src="assets/scripts/bootstrap-4.0.0.min.js"></script>
+    <script src="assets/scripts/hierarchy-menu.js"></script>
+    <script src="assets/scripts/app.js"></script>
+
+    <script>
+        $("document").ready(function() {
+            app.init();
+            app.slide(".slider");
+        });
+
+        $('.hierarchy-menu').initMenu({
+            items: {
+                'Languages': {
+                    'Javascript': {
+                        'Event Loop': '#pages/javascript/event-loop.html',
+                        'Memory Management': '#pages/javascript/memory-management.html',
+                        'Callback': '#pages/javascript/callback.html',
+                        'Promise': '#pages/javascript/promise.html',
+                        'Observable': '#pages/javascript/Observable.html',
+                        'Workers': '#pages/javascript/workers.html',
+                        'Strict mode': '#pages/javascript/strict-mode-in-javascript.html',
+                        'Copy Object': '#pages/javascript/copy-object.html',
+                        'Rest Parameters': '#pages/javascript/rest-parameters.html',
+                        'Losing "this"': '#pages/javascript/losing-this.html',
+                        'Decorators and Forwarding': '#pages/javascript/decorators-and-forwarding.html'
+                    }
+                },
+                'Machine Learning': {
+                    'AI, Machine Learning and Deep Learning': '#pages/machine-learning/ai-machine-learning-and-deep-learning.html',
+                    'Precision and Recall': '#pages/machine-learning/precision-and-recall.html',
+                    'Image Feature Extraction': '#pages/machine-learning/image-feature-extraction.html',
+                    'Detect person with INRIA Dataset': '#pages/machine-learning/detect-person-with-inria-dataset.html',
+                    'Art Face': '#',
+                    'Wild Face': '#',
+                    'VietOCR': '#',
+                    'Graph Text Detection': '#',
+                    'Backproparation': '#',
+                    'NLP': {
+                        'Word Segmentation': '#'
+                    }
+                },
+                'Mathematic': {
+                    'Least Squared Regression': '#'
+                },
+                'Programming': {
+                    'Database': {
+                        'Storage Engines': '#pages/database/storage-engines.html',
+                        'ACID Properties': '#pages/database/acid-properties.html',
+                        'BASE Model': '#pages/database/base-model.html',
+                        'Strong and Eventual Consistency': '#pages/database/strong-consistency-and-eventual-consistency.html',
+                        'SQL and NoSQL': '#pages/database/sql-and-nosql.html',
+                        'Sharding and Partitioning': ''
                     },
-                    'Machine Learning': {
-                        'AI, Machine Learning and Deep Learning': '#pages/machine-learning/ai-machine-learning-and-deep-learning.html',
-                        'Precision and Recall': '#pages/machine-learning/precision-and-recall.html',
-                        'Image Feature Extraction': '#pages/machine-learning/image-feature-extraction.html',
-						'Detect person with INRIA Dataset': '#pages/machine-learning/detect-person-with-inria-dataset.html',
-						'Art Face': '#',
-						'Wild Face': '#',
-						'VietOCR': '#',
-						'Graph Text Detection': '#',
-						'Backproparation': '#',
-						'NLP': {
-							'Word Segmentation': '#'
-						}
+                    'Technique': {
+                        'Module Bundler': '#pages/web/technologies/module-bundler.html',
+                        'Single sign on': '#',
+                        'Oauth': '#',
+                        'Memory Alignment': '#',
+                        'Liveness Detection': '#',
+                        'Priority Queue': '#',
+                        'Table Drivent': '#'
                     },
-					'Mathematic': {
-						'Least Squared Regression': '#'
-					},
-					'Programming': {
-                        'Database': {
-                            'Storage Engines': '#pages/database/storage-engines.html',
-                            'ACID Properties': '#pages/database/acid-properties.html',
-                            'BASE Model': '#pages/database/base-model.html',
-                            'Strong and Eventual Consistency': '#pages/database/strong-consistency-and-eventual-consistency.html',
-                            'SQL and NoSQL': '#pages/database/sql-and-nosql.html'
-						},
-                        'Technique': {
-                            'Module Bundler': '#pages/web/technologies/module-bundler.html',
-							'Single sign on': '#',
-							'Oauth': '#',
-							'Memory Alignment': '#',
-							'Liveness Detection': '#',
-							'Priority Queue': '#',
-							'Table Drivent': '#'
+                    'Software Design': {
+                        'Structured Design': '#',
+                        'Structure Chart': '#',
+                        'Transaction analysis and transform analysis': '#',
+                        'Program Flowchart': '#',
+                        'Structure Flowchart': '#',
+                        'UML Diagram': '#',
+                        'Life Cycle Management': '#',
+                        'Tenant Management': '#'
+                    },
+                    'Data Structures and Algorithms': {
+                        'Data Structures': {
+                            'Array': '#pages/data-structures-and-algorithms/data-structures/array.html',
+                            'Linked List': '#pages/data-structures-and-algorithms/data-structures/linked-list.html',
+                            'Queue': '#pages/data-structures-and-algorithms/data-structures/queue.html',
+                            'Stack': {
+                                'Introduce': '#pages/data-structures-and-algorithms/data-structures/graph/introduce.html',
+                                'DFS - Find a Path': '#pages/data-structures-and-algorithms/data-structures/graph/DFS-find-a-path.html',
+                                'BFS - Shortest Path': '#pages/data-structures-and-algorithms/data-structures/graph/BFS-shortest-path.html',
+                                'Mother Vertex': '#pages/data-structures-and-algorithms/data-structures/graph/mother-vertex.html',
+                            }
                         },
-						'Software Design': {
-							'Structured Design': '#',
-							'Structure Chart': '#',
-							'Transaction analysis and transform analysis': '#',
-							'Program Flowchart': '#',
-							'Structure Flowchart': '#',
-							'UML Diagram': '#',
-							'Life Cycle Management': '#'
-						},
-						'Data Structures and Algorithms': {
-							'Data Structures': {
-								'Array': '#pages/data-structures-and-algorithms/data-structures/array.html',
-								'Linked List': '#pages/data-structures-and-algorithms/data-structures/linked-list.html',
-								'Queue': '#pages/data-structures-and-algorithms/data-structures/queue.html',
-								'Stack': {
-									'Introduce': '#pages/data-structures-and-algorithms/data-structures/graph/introduce.html',
-									'DFS - Find a Path': '#pages/data-structures-and-algorithms/data-structures/graph/DFS-find-a-path.html',
-									'BFS - Shortest Path': '#pages/data-structures-and-algorithms/data-structures/graph/BFS-shortest-path.html',
-									'Mother Vertex': '#pages/data-structures-and-algorithms/data-structures/graph/mother-vertex.html',
-								}
-							},
-							'Sorting': {
-								'Bubble Sort': '#pages/data-structures-and-algorithms/sorting/bubble-sort.html',
-								'Selection Sort': '#pages/data-structures-and-algorithms/sorting/selection-sort.html',
-								'Insertion Sort': '#pages/data-structures-and-algorithms/sorting/insertion-sort.html',
-								'Shell Sort': '#pages/data-structures-and-algorithms/sorting/shell-sort.html',
-								'Heap Sort': '#pages/data-structures-and-algorithms/sorting/heap-sort.html',
-								'Quick Sort': '#pages/data-structures-and-algorithms/sorting/quick-sort.html',
-								'Merge Sort': '#pages/data-structures-and-algorithms/sorting/merge-sort.html'
-							},
-							'String Searching': {
-								'Brute Force': '#pages/algorithm/string-searching/brute-force.html',
-								'Knuth Morris Pratt': '#pages/algorithm/string-searching/knuth-morris-pratt'
-							},
-							'Back Tracking': '#'
-						},
-						'System': {
-							'Process and Thread': '#pages/others/process-and-thread.html'
-						},
-						'Keyword': {
-							'IS-A Relationship': '#',
-						},
-						'Software Development Methods': {
-							'Structure Analysis and Design': '#'
-						},
-						'Debugger': {
-							'Sentry': '#'
-						}
+                        'Sorting': {
+                            'Bubble Sort': '#pages/data-structures-and-algorithms/sorting/bubble-sort.html',
+                            'Selection Sort': '#pages/data-structures-and-algorithms/sorting/selection-sort.html',
+                            'Insertion Sort': '#pages/data-structures-and-algorithms/sorting/insertion-sort.html',
+                            'Shell Sort': '#pages/data-structures-and-algorithms/sorting/shell-sort.html',
+                            'Heap Sort': '#pages/data-structures-and-algorithms/sorting/heap-sort.html',
+                            'Quick Sort': '#pages/data-structures-and-algorithms/sorting/quick-sort.html',
+                            'Merge Sort': '#pages/data-structures-and-algorithms/sorting/merge-sort.html'
+                        },
+                        'String Searching': {
+                            'Brute Force': '#pages/algorithm/string-searching/brute-force.html',
+                            'Knuth Morris Pratt': '#pages/algorithm/string-searching/knuth-morris-pratt'
+                        },
+                        'Back Tracking': '#'
                     },
-					'Book Understanding': {
-						'Pearson Agile Software Development Principles Patterns and Practices - Robert C Martin': {
-							'Agile Development': {
-								'4. Refactoring': '#pages/book-understanding/pearson-agile-software-development-principles-patterns-and-practices/4-refactoring.html'
-							},
-							'Agile Design': {
-								'Introduce': '#pages/book-understanding/pearson-agile-software-development-principles-patterns-and-practices/agile-design.html',
-								'5. What is agile design ?': '#pages/book-understanding/pearson-agile-software-development-principles-patterns-and-practices/5-what-is-agile-design.html',
-								'6. Single Responsibility Principle': '#pages/book-understanding/pearson-agile-software-development-principles-patterns-and-practices/6-single-responsibility-principle.html',
-								'7. Open-Closed Principle': '#pages/book-understanding/pearson-agile-software-development-principles-patterns-and-practices/7-open-closed-principle.html',
-								'8. Liskov Subtituable Principle': '#pages/book-understanding/pearson-agile-software-development-principles-patterns-and-practices/8-liskov-subtituable-principle.html',
-								'9. Dependency Inversion Principle': '#pages/book-understanding/pearson-agile-software-development-principles-patterns-and-practices/7-dependency-inversion-principle.html'
-							}
-						}
-					}
+                    'System': {
+                        'Process and Thread': '#pages/others/process-and-thread.html'
+                    },
+                    'Keyword': {
+                        'IS-A Relationship': '#',
+                        'Citus': '#',
+                        'Serverless': '#'
+                    },
+                    'Software Development Methods': {
+                        'Structure Analysis and Design': '#'
+                    },
+                    'Debugger': {
+                        'Sentry': '#'
+                    }
+                },
+                'Book Understanding': {
+                    'Pearson Agile Software Development Principles Patterns and Practices - Robert C Martin': {
+                        'Agile Development': {
+                            '4. Refactoring': '#pages/book-understanding/pearson-agile-software-development-principles-patterns-and-practices/4-refactoring.html'
+                        },
+                        'Agile Design': {
+                            'Introduce': '#pages/book-understanding/pearson-agile-software-development-principles-patterns-and-practices/agile-design.html',
+                            '5. What is agile design ?': '#pages/book-understanding/pearson-agile-software-development-principles-patterns-and-practices/5-what-is-agile-design.html',
+                            '6. Single Responsibility Principle': '#pages/book-understanding/pearson-agile-software-development-principles-patterns-and-practices/6-single-responsibility-principle.html',
+                            '7. Open-Closed Principle': '#pages/book-understanding/pearson-agile-software-development-principles-patterns-and-practices/7-open-closed-principle.html',
+                            '8. Liskov Subtituable Principle': '#pages/book-understanding/pearson-agile-software-development-principles-patterns-and-practices/8-liskov-subtituable-principle.html',
+                            '9. Dependency Inversion Principle': '#pages/book-understanding/pearson-agile-software-development-principles-patterns-and-practices/9-dependency-inversion-principle.html'
+                        }
+                    }
                 }
-            })
-		</script>
-	</body>
+            }
+        });
+    </script>
+</body>
+
 </html>

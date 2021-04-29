@@ -1,0 +1,52 @@
+<h3>Layering</h3>
+<div class="space-60">
+    <img src="/blog/assets/imgs/dependencies-inversion.png">
+    <br>
+    <p>With above design, we have 3 layers and higher layers depend on lower layer.</p>
+    <p>When the lower layer change, all higher layers have to be changed.</p>
+    <img src="/blog/assets/imgs/dependencies-inversion-2.png">
+    <br>
+    <p>After refactor the origin design, we can see the <mark>lower layer depends on the interface that declared by the next higher layer</mark>.</p>
+    <p>It means <strong>the lower modules provide the implementation for interfaces that are declared within, and called by, the higher modules</strong>.</p>
+    <p><span class="arrow">&rArr;</span> Therefore, <mark>the inversion here is not just one of dependencies, <abbr title="It means the higher module has to define the interfaces what it needs. After that, the lower module implements that interfaces.">it is also one of interface ownership</abbr>.</mark></p>
+</div>
+<br>
+<h3>Depend on Abstraction</h3>
+<div class="space-60">
+    <p>With above example, we can see how to make the lower module depends on the abstraction instead of the higher module.</p>
+    <p>With the same idea, the principle recommends that <mark>we should not depend on a concrete class</mark>. <strong>All relationships in a program should terminate on an abstract class or an interface.</strong> To make it happen, we need to follow</p>
+    <div class="space-60">
+        <p>No variable should hold a pointer or reference to a concrete class</p>
+        <p>No class should derive from a concrete class</p>
+        <p>No method should override an implemented method of any of its base classes</p>
+    </div>
+</div>
+<br>
+<h3>Finding the Underlying Abstraction</h3>
+<div class="space-60">
+    <p><strong>The dependencies inversion can be applied wherever one class sends a message to another</strong>.</p>
+    <p>To apply, we need to find out the <abbr data-internal-target="question-1" title="What is the abstraction of the application and how to find it?">abstraction that underlies the application</abbr>. The abstraction do not vary when the details are changed.</p>
+</div>
+<br>
+<h3>Questions</h3>
+<div class="space-60">
+    <div data-target='question-1'>
+        <p><strong>What is the abstraction of the application and how to find it?</strong></p>
+        <div class="space-60">
+            <p>
+                For example, we need to make an system, that has a button and a lamp. <br>
+                When people presses the button, it send a on or off message to the lamp.
+            </p>
+            <p>
+                With this example, we can see the underlying abstraction is to detect an on/off message from something and send it to the target object. <br>
+                What is the button? Irrelevant. The button can be a button icon on the GUI, a physical button or a motion detector. <br>
+                What is the target object ? Irrelevant. That can be a lamp, a led on the computer or the laser in a laser printer.
+            </p>
+            <p>
+                Although the button or the lamp can be changed, it can be whatever but the abstraction is never changed. <br>
+                The abstraction always is to detect an on/off message from something and send it to the target object. <br>
+                So the details (button, lamp) that do not impact the abstraction.
+            </p>
+        </div>
+    </div>
+</div>
