@@ -1,0 +1,23 @@
+<h3>Meaning</h3>
+<div class="space-60">
+    <p>If the <a href="">Dependency Inversion Principle</a> guides us that all objects should depend on the abstraction.</p>
+    <p>So the <strong>Interface Segregation Principle</strong> help us to organize and design that abstraction.</p>
+    <p>The principle makes 3 points:</p>
+    <div class="space-60">
+        <p>Each client has each own interface.</p>
+        <div class="space-60">
+            <p>The client is something uses that interface. It can be an another class, program, ...</p>
+            <p>Because the interface is owned by the client. So clients should not be forced to depend on methods that they do not use.</p>
+            <p>When the client is seperated. The interface should be seperated too. Because clients exert forces on the interfaces they use</p>
+        </div>
+        <p>When the interface changes, it effects on its clients. And the client can make its interface change.</p>
+        <p>The ways to seperate the interface.</p>
+        <div class="space-60">
+            <p>Separation through Delegation</p>
+            <p>Separation through Multiple Inheritance (Prefer to use)</p>
+        </div>
+        <p>Polyadic form is refer than Monadic form</p>
+        <p>Sometimes, the methods invoked by different clients or group of clients will overlap. If the overlap is small, then the interfaces for that groups or clients should remain seperate.</p>
+        <p>When we maintains a app and we need to change the interfaces. If that change have a huge impact, the impact should be migrated by adding new interfaces to existing objects, rather than changing the existing interfaces.</p>
+    </div>
+</div>

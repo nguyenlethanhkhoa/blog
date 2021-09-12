@@ -1,0 +1,134 @@
+<h3>Open-Closed Principle</h3>
+<div class="space-60">
+    <p>Open-Closed Principle is a guildance that help we keep the designs stable in all versions of the software</p>
+    <p>A module compliances <strong>OCP</strong> have two primary attributes</p>
+    <div class="space-60">
+        <p><strong>Open for Extension</strong></p>
+        <div class="space-60">
+            <p>
+                This means that the behavior of module can be extended. As the requirements of the application change,
+                we are able to extend the module with new behaviors that satisfy those changes. In other words, we are able
+                to change what the module does.
+            </p>
+        </div>
+        <p><strong>Closed for Modification</strong></p>
+        <div class="space-60">
+            <p>Extending the behavior of a module does not change the source code.</p>
+        </div>
+    </div>
+    <p>When Open-Closed Principle is applied, <mark>the feature changes are archieved by adding new code, not by changing old code</mark> that already works.</p>
+    <p>The normal way to extend the behavior of a module is to make changes to the source code of that module</p>
+    <p><mark>How is it possible that the behaviors of a module can be modified without changing its source code ?</mark></p>
+    <p><mark>How can we change what a module does, without changing the module ?</mark></p>
+</div>
+<br>
+<h3>Abstraction</h3>
+<div class="space-60">
+    <div class="space-60">
+        <pre>
+            enum ShapeType {circle, square};
+
+            struct Shape {
+                ShapeType itsType;
+            };
+        </pre>
+        <pre>
+            struct Circle {
+                ShapeType itsType;
+                double itsRadius;
+                Point itsCenter;
+            };
+
+            void DrawCircle(struct Circle*);
+        </pre>
+        <pre>
+            struct Square {
+                ShapeType itsType;
+                double itsSide;
+                Point itsTopLeft;
+            };
+
+            void DrawSquare(struct Square*);
+        </pre>
+        <pre>
+            typedef struct Shape *ShapePointer;
+
+            void DrawAllShapes(ShapePointer list[], int n) {
+                int i;
+                for (i=0; i < n; i++) {
+                    struct Shape* s = list[i];
+                    switch (s-> itsType) {
+                        case square:
+                            DrawSquare((struct Square*)s);
+                            break;
+                        case circle:
+                            DrawCircle((struct Circle*)s);
+                            break;
+                    }
+                }
+            }
+        </pre>
+    </div>
+    <br>
+    <p>The <code>DrawAllShapes</code> function <mark>cannot be closed</mark> against new kinds of shapes. We have to modify the function for any new type of <code>Shape</code>.</p>
+    <p>In facts, <code>if/else</code> or <code>switch</code> statement will be repeated in other functions like <code>MoveShapes</code>, <code>AddShape</code> or <code>DeleteShape</code>.</p>
+    <p>When we add new type of <code>Shape</code>, we need to search and modify all <code>if/else</code> or <code>switch</code> statements.</p>
+    <h4>Fragile</h4>
+    <div class="space-60">
+        <p>Searching and understading to modify the behavior of that functions is very difficult.</p>
+    </div>
+    <h4>Regidity</h4>
+    <div class="space-60">
+        <p>Beside that, after modifying them, we need to recompile, retest and redeploy all of them</p>
+    </div>
+    <h4>Immobile</h4>
+    <div class="space-60">
+        <p>When anyone attempting to reuse <code>DrawAllShapes</code> in the new program is required to bring along <code>Square</code> and <code>Circle</code> even if the new program doesn't need them.</p>
+    </div>
+    <br>
+    <div class="space-60">
+        <pre>
+            class Shape
+            {
+                public:
+                    virtual void Draw() const = 0;
+            };
+        </pre>
+        <pre>
+            class Square : public Shape
+            {
+                public:
+                    virtual void Draw() const;
+            };
+    
+            class Circle : public Shape
+            {
+                public:
+                    virtual void Draw() const;
+            };
+        </pre>
+        <pre>
+            void DrawAllShapes(vector<Shape*>& list)
+            {
+                vector<Shape*>::iterator i;
+    
+                for (i=list.begin(); i != list.end(); i++)
+                    (*i)->Draw();
+            }
+        </pre>
+    </div>
+    <br>
+    <p>With <strong>Abstraction</strong>, if we want to extend the behavior of the <code>DrawAllShapes</code> function to draw new kind of shape.</p>
+    <p>All we need do is add a new derivative of the <code>Shape</code> class</p>
+    <p>With this design, we <mark>open for extending and close for modifying <code>DrawAllShapes</code></mark>.</p>
+</div>
+<br>
+<h3>Another kind of change</h3>
+<div class="space-60">
+    <p>What would happen to the <code>DrawAllShapes</code> if we decided that all <code>Circles</code> should be drawn before any <code>Squares</code>.</p>
+    <p>To implement that change, we have to modify the <code>DrawAllShapes</code> function.</p>
+    <p>With this change, we relize <mark>no model or design can be closed completely</mark>.</p>
+    <p><mark>If we guess the possible changes then construct the abstraction to close the design. So that design is smelled of <a href="#">Needless Complexity</a></mark></p>
+    <p>To prevent the <a href="#">Needless Complexity</a>, we initially write our code expecting it not change.</p>
+    <p><mark>When a change occurs, we implement the abstractions that protect us from future changes of that kind</mark></p>
+</div>
