@@ -1,4 +1,16 @@
-<h3>Layering</h3>
+<h3>Meaning</h3>
+<div class="space-60">
+    <p>This principle helps us removing the dependencies between 2 modules, classes or applications.</p>
+    <p>The principle makes 4 points</p>
+    <div class="space-60">
+        <p><strong>1.</strong> The inversion is the interface ownership inversion.</p>
+        <p><strong>2.</strong> The lower modules provides the implementations for the interfaces that are declared within, and called by the higher modules.</p>
+        <p><strong>3.</strong> All relationships in a program should terminate on an abstract class or an interface.</p>
+        <p><strong>4.</strong> The dependencies inversion can be applied whenever one class sends a message to another.</p>
+    </div>
+</div>
+<br>
+<h3>The interface ownership inversion.</h3>
 <div class="space-60">
     <img src="/blog/assets/imgs/dependencies-inversion.png">
     <br>
@@ -11,7 +23,7 @@
     <p><span class="arrow">&rArr;</span> Therefore, <mark>the inversion here is not just one of dependencies, <abbr title="It means the higher module has to define the interfaces what it needs. After that, the lower module implements that interfaces.">it is also one of interface ownership</abbr>.</mark></p>
 </div>
 <br>
-<h3>Depend on Abstraction</h3>
+<h3>Terminate the relationships by depending on abstraction</h3>
 <div class="space-60">
     <p>With above example, we can see how to make the lower module depends on the abstraction instead of the higher module.</p>
     <p>With the same idea, the principle recommends that <mark>we should not depend on a concrete class</mark>. <strong>All relationships in a program should terminate on an abstract class or an interface.</strong> To make it happen, we need to follow</p>
@@ -22,7 +34,7 @@
     </div>
 </div>
 <br>
-<h3>Finding the Underlying Abstraction</h3>
+<h3>When and how to apply the principle.</h3>
 <div class="space-60">
     <p><strong>The dependencies inversion can be applied wherever one class sends a message to another</strong>.</p>
     <p>To apply, we need to find out the <abbr data-internal-target="question-1" title="What is the abstraction of the application and how to find it?">abstraction that underlies the application</abbr>. The abstraction do not vary when the details are changed.</p>
