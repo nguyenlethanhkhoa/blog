@@ -1,0 +1,121 @@
+<h3>"this" in function</h3>
+<div class="space-60">
+    <p>Trong JavaScript, Function là một dạng đặc biệt của Object, thường được gọi là <strong>Function Object</strong>, vì vậy ta có thể dùng <strong>"this"</strong> trong Function.</p>
+    <pre>
+        <code class="javascript">
+    function sayHi() {
+        this.name = "John";
+        console.log( `Hello ${this.name}` ); // Hello John
+    }
+        </code>
+    </pre>
+    <p>Khi khai báo một Function, Function đó có thể dùng <strong>"this"</strong>, nhưng lúc này <strong>"this"</strong> sẽ không mang giá trị gì.</p>
+    <p>Giá trị của <strong>"this"</strong> sẽ bị thay đổi trong lúc <i>call-time</i> và tùy thuộc vào <i>context</i> như ví dụ bên dưới.</p>
+    <pre>
+        <code class="javascript">
+    let user = { name: "John" };
+    let admin = { name: "Admin" };
+    
+    function sayHi() {
+        alert( this.name );
+    }
+    
+    // use the same function in two objects
+    user.f = sayHi;
+    admin.f = sayHi;
+
+    user.f(); // John  (this == user)
+    admin.f(); // Admin  (this == admin)
+        </code>
+    </pre>
+    <p><strong class="note">Lưu ý : </strong></p>
+    <div class="space-60">
+        <p><span class="point">&#9899;</span> Trong <i><a href="#pages/javascript/strict-mode-in-javascript.html">strict mode</a></i>, <strong>"this"</strong> trong function sẽ là <i>undefined</i>.</p>
+        <p><span class="point">&#9899;</span> Trong <i>non-strict mode</i>, <strong>"this"</strong> chính là <i>Global Object</i>.</p>
+        <p><span class="point">&#9899;</span> <strong>Arrow Function</strong> không có <strong>"this"</strong> của chính nó. Khi <strong>Arrow Function</strong> sử dụng <strong>"this"</strong> có nghĩa là nó đang trỏ tới <strong>"this"</strong> ở <i>outer context</i>.</p>
+    </div>
+    <p>Chúng ta sẽ thấy rõ cách JavaScript khởi tạo và gán giá trị cho <strong>"this"</strong> trong <strong><a href="#pages/javascript/new-keyword.html">Function Constructor</a></strong></p>
+</div>
+<br>
+<br>
+<h3>Losing "this"</h3>
+<div class="space-60">
+    <p>Khi chúng ta dùng object method làm một callback, ví dụ như là hàm <strong>setTimeout</strong>, chúng ta sẽ gặp một vấn đề, mất keyword <strong>this</strong>.</p>
+    <pre>
+        <code class="javascript">
+    let User = {
+        firstName: "John",
+        sayHi() {
+            alert(`Hello, ${this.firstName}!`);
+        }
+    };
+
+    setTimeout(User.sayHi, 1000); // Hello, undefined!
+        </code>
+    </pre>
+    <p>
+        Trong đoạn code trên, kết quả chúng ta nhận được sẽ là "Hello, undefined" thay vì là "Hello, John". Điều này xảy ra vì function <strong>setTimeout</strong> nhận được input(callback) là một
+        function <strong>sayHi</strong> tách biệt hoàn toàn với object User. Hay nói cách khác, chúng ta bị mất User Context.
+    </p>
+    <h4>Wrapper Function</h4>
+    <div class="space-60">
+        <p>Cách dễ nhất để chúng ta có thể giải quyết vấn đề này là sử dụng <strong>wrapping function</strong>.</p>
+        <pre>
+            <code class="javascript">
+    let User = {
+        firstName: "John",
+        sayHi() {
+            alert(`Hello, ${this.firstName}!`);
+        }
+    };
+
+    setTimeout(function() {
+        User.sayHi(); // Hello, John!
+    }, 1000);
+            </code>
+        </pre>
+        <p>Vì method <strong>sayHi</strong> đang được gọi trực tiếp từ <strong>Object User</strong> nên chúng ta sẽ nhận được kết quả đúng.</p>
+    </div>
+    <br>
+    <h4>Function Binding</h4>
+    <div class="space-60">
+        <p>Với việc sử dụng <strong>wrapping function</strong>, chúng ta đã giải quyết được vấn đề trên, nhưng sẽ thế nào nếu biến user bị thay đổi ?</p>
+        <pre>
+            <code class="javascript">
+    let User = {
+        firstName: "John",
+        sayHi() {
+            alert(`Hello, ${this.firstName}!`);
+        }
+    };
+    
+    setTimeout(function() {
+        User.sayHi();
+    }, 1000);
+
+    User = 1111;
+            </code>
+        </pre>
+        <p>Vì method <strong>sayHi</strong> được gọi trực tiếp từ <strong>Object User</strong> nhưng <strong>Object User</strong> đã bị Gabage Collection xóa vì ta thay đổi giá trị của biến User.</p>
+        <p>Do đó chúng ta sẽ nhận được lỗi <span class="error">TypeError: User.sayHi is not a function</span></p>
+        <p>
+            Để giải quyết vấn đề phát sinh từ việc dùng <strong>wrapping function</strong>, JavaScript đã hỗ trợ chúng ta function
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">bind</a>
+        </p>
+        <pre>
+            <code class="javascript">
+    let User = {
+        firstName: "John",
+        sayHi() {
+            alert(`Hello, ${this.firstName}!`);
+        }
+    };
+
+    setTimeout(user.sayHi.bind(User), 1000);
+
+    User = 1111;
+            </code>
+        </pre>
+        <p>Khi chúng ta <strong>bind</strong> User Context vào method <strong>User.sayHi</strong> thì Object User vẫn được giữ reference nên Gabage Collection không xóa đi User Object.</p>
+    </div>
+</div>

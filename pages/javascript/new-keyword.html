@@ -1,0 +1,107 @@
+<h3>Constructor Function</h3>
+<div class="space-60">
+    <p>Về mặt lý thuyết, <strong>Constructor Function</strong> chính là một Function. Vậy làm thế nào để phân biệt một Function chính là Constructor Function ?</p>
+    <p>Thông thường, một <strong>Constructor Function</strong> sẽ tuân thủ 2 điều sau:</p>
+    <div class="space-60">
+        <p><span class="point">&#9899;</span> Viết hoa chữ đầu tiên.</p>
+        <p><span class="point">&#9899;</span> Chỉ được gọi với <strong>"new"</strong>.</p>
+    </div>
+    <pre>
+        <code class="javascript">
+    function User(name) {
+        // this = {};  (implicitly)
+        
+        // add properties to this
+        this.name = name;
+        this.isAdmin = false;
+        
+        // return this;  (implicitly)
+    }
+        
+    let user = new User("Jack");
+        </code>
+    </pre>
+    <p>Khi một <strong>Constructor Function</strong> được thực thi, nó sẽ thực hiện những bước sau:</p>
+    <div class="space-60">
+        <p><span class="point">&#9899;</span> Một <strong>Object</strong> rỗng sẽ được tạo ra và gán cho <strong><a href="#pages/javascript/this-keyword.html">this</a></strong>.</p>
+        <p><span class="point">&#9899;</span> Sau khi chạy hết hàm, <strong>Constructor Function</strong> sẽ return về <strong><a href="#pages/javascript/this-keyword.html">this</a></strong>.</p>
+    </div>
+    <br>
+    <p>Khi ta khai báo <strong>Constructor Function</strong> bằng <i>Arrow Function</i> thì khi <strong>new</strong> thì sẽ bị lỗi <span class="error">TypeError: User is not a constructor</span>.</p>
+    <p>Thông thường <strong>Constructor Function</strong> không có <code>return</code>. Nhưng vì <strong>Constructor Function</strong> cũng chính là Function nên chúng ta có thể sử dụng lệnh <code>return</code>.</p>
+    <div class="space-60">
+        <p><span class="point">&#9899;</span> Nếu <code>return</code> một Object thì ta sẽ nhận được Object đó.</p>
+        <pre>
+            <code class="javascript">
+    function BigUser() {
+
+        this.name = "John";
+        
+        return { name: "Godzilla" };  // <-- returns this object
+    }
+    
+    alert( new BigUser().name );  // Godzilla, got that object
+            </code>
+        </pre>
+        <p><span class="point">&#9899;</span> Nếu <code>return</code> về bất kỳ một dữ liệu mà không phải là Object thì <strong><a href="#pages/javascript/this-keyword.html">this</a></strong> sẽ được trả về.</p>
+        <pre>
+            <code class="javascript">
+    function SmallUser() {
+
+        this.name = "John";
+        
+        return 1; // <-- returns this
+
+        // return "John"; <-- returns this
+        // return false;  <-- returns this
+    }
+    
+    alert( new SmallUser().name );  // John
+            </code>
+        </pre>
+    </div>
+</div>
+<br><br>
+<h3>Anonymous Constructor Function</h3>
+<div class="space-60">
+    <p>Chúng ta hoàn toàn có thể <strong>new</strong> một <i>Anonymous Function</i></p>
+    <pre>
+        <code class="javascript">
+    let user = new function() {
+        this.name = "John";
+        this.isAdmin = false;
+    };
+        </code>
+    </pre>
+    <p>Nhưng trong trường hợp này, chúng ta sẽ không thể khởi tạo lại <strong>Constructor Function</strong> đó một lần nữa.</p>
+</div>
+<br><br>
+<h3>new.target</h3>
+<div class="space-60">
+    <p>Chúng ta có thể kiểm tra một Function có được sử dụng như là một <strong>Constructor Function</strong> hay không bằng <strong>new.target</strong></p>
+    <pre>
+        <code class="javascript">
+    function User() {
+        alert(new.target);
+    }
+    
+    User(); // undefined
+
+    new User(); // function User { ... }
+        </code>
+    </pre>
+    <p>Với <strong>new.target</strong>, chúng ta có thể tạo ra <strong>Constructor Function</strong> vừa có thể gọi bằng <strong>new</strong> và vừa có thể gọi bằng cách thông thường.</p>
+    <pre>
+        <code class="javascript">
+    function User(name) {
+        if (!new.target) { // if you run me without new
+            return new User(name); // ...I will add new for you
+        }
+        
+        this.name = name;
+    }
+        
+    let john = User("John"); // redirects call to new User
+        </code>
+    </pre>
+</div>
