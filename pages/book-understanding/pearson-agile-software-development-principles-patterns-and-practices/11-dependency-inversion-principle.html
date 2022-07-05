@@ -12,11 +12,11 @@
 <br>
 <h3>The interface ownership inversion.</h3>
 <div class="space-60">
-    <img src="/blog/assets/imgs/dependencies-inversion.png">
+    <img src="/assets/imgs/dependencies-inversion.png">
     <br>
     <p>With above design, we have 3 layers and higher layers depend on lower layer.</p>
     <p>When the lower layer change, all higher layers have to be changed.</p>
-    <img src="/blog/assets/imgs/dependencies-inversion-2.png">
+    <img src="/assets/imgs/dependencies-inversion-2.png">
     <br>
     <p>After refactor the origin design, we can see the <mark>lower layer depends on the interface that declared by the next higher layer</mark>.</p>
     <p>It means <strong>the lower modules provide the implementation for interfaces that are declared within, and called by, the higher modules</strong>.</p>

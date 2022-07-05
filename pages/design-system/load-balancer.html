@@ -1,0 +1,26 @@
+<p><strong>Load balancer</strong> is a software sits in front of the server pool and routing client requests across all servers. It has 3 main functions: </p>
+<div class="space-40">
+    <p><strong>- </strong>Distributes client requests or network load efficiently across multiple servers</p>
+    <p><strong>- </strong>Ensures no server is overworked and only sends requests to live servers</p>
+    <p><strong>- </strong>Provides the flexibility to add or subtract servers as demand dictates</p>
+</div>
+<br>
+<p>
+    Load balancer supports weighted and non-weighted algorithms. <br>
+    <strong>Weighted algorithm</strong> uses weight to determine which server receives the next request <br>
+    <strong>A non-weighted algorithm</strong> assumes that the capacity of all servers in the group to be equivalent
+</p>
+<br>
+<p class="space-40"><strong>Round Robin</strong></p>
+<p class="space-80">The round robin sends request to the server list in order. It means first request is sent to first server, second request to second one.</p>
+<p class="space-40"><strong>Weighted round robin</strong></p>
+<p class="space-80">The weighted round robin algorithm maintains a weighted list of servers and forwards new connections in proportion to the weight</p>
+<p class="space-40"><strong>Dynamic weighted round robin</strong></p>
+<p class="space-80">The weight of the servers are updated realtime</p>
+<p class="space-40"><strong>Least connections</strong></p>
+<p class="space-80">The least connections algorithm maintains a record of active server connections and forward a new connection to the server with the least number of active connections.</p>
+<p class="space-40"><strong>Weighted least connections</strong></p>
+<p class="space-80">The round robin sends request to the server list in order. It means first request is sent to first server, second request to second one.</p>
+    
+
+
