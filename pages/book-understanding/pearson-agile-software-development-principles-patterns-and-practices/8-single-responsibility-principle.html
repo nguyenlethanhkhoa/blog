@@ -1,3 +1,4 @@
+<h4>Explanation</h4>
 <div class="space-60">
     <p>
         Single 
@@ -31,6 +32,18 @@
     </p>
     <p><i>The modem example (page 95) will describe detail of this principle.</i></p>
 </div>
+<h4>Mistake</h4>
+<div class="space-60">
+    <p><strong>Code duplication</strong></p>
+    <p>
+        Sometime, we see the logic code is duplicated at many where and we decide to group it into a function or module to reuse it. <br>
+        Normally, we didnt care much about which factor can make the code change. <br>
+        After long time, we have to change that function or module to adapt one or more factor, we usually miss some another factor. <br>
+        So the factor who need the change will work well but another is not.
+    </p>
+    <p><strong>In this case, we should have a design to group that code into a function or module and easy to extend for only change factor if it need.</strong></p>
+    <p>Example <strong>Employee</strong> (page 76 in Clean Architecture)</p>
+</div>
 <br>
 <br>
 <h3>Questions</h3>
@@ -45,7 +58,10 @@
     <div data-target="question-2">
         <p><strong>What is responsibility ?</strong></p>
         <div class="space-60">
-            <p>In the context of the Single Responsibility Principle, the <strong>responsibility is a reason to change</strong>.</p>
+            <p>
+                In the context of the Single Responsibility Principle, the <strong>responsibility is a reason to change</strong>. <br>
+                The reason is the customer's requirements. So we can understand that <strong>A module should be responsible to one, and only one, user or stakeholder.</strong> <br>
+                Read page 75 of <a href="#">Clean Architecture</a> for more detail
+            </p>
         </div>
     </div>
-</div>
