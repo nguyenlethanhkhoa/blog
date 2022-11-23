@@ -1,0 +1,101 @@
+<h3>What is process ?</h3>
+<div class="space-40">
+    <p>
+        <strong>Process</strong> có thể được hiểu là tiến trình chạy của một hay nhiều đoạn code (program).
+        Khi đoạn code được load vào vùng nhớ để thực thi thì đó là lúc bắt đầu 1 process.
+        <br>
+    </p>
+    <p>1 Process gồm 4 phần:</p>
+    <div class="space-40">
+        <p><strong>Stack: </strong> Lưu temporary data như function params, địa chỉ trả về của function và biến local.</p>
+        <p><strong>Heap: </strong> Bộ nhớ được cấp phát động cho một process.</p>
+        <p><strong>Text</strong></p>
+        <p><strong>Data: </strong> Nơi chứa các biến global và static</p>
+    </div>
+    <p>Những hoạt động của <strong>Process</strong> được quản lý bởi <strong>Process Control Block</strong>.</p>
+</div>
+<h3>Child Process</h3>
+<div class="space-40">
+    <p>Một process có thể tạo ra một hay nhiều process khác bằng cách gọi hàm <strong>fork</strong>. Những process này được gọi là <strong>Child Process</strong></p>
+    <p>
+        Child Process là một bản copy của Process hiện tại, do đó, nó sẽ copy <i>data space, heap và stack</i> từ process cha.
+        Và sau đó, <i>data space, heap và stack</i> của Process cha và Process con là độc lập với nhau.
+    </p>
+</div>
+
+<h3>Process Termination</h3>
+<div class="space-40">
+    <p>Có 5 cách để terminate Process:</p>
+    <div class="space-40">
+        <p><strong>- </strong> Return từ hàm <strong>main</strong></p>
+        <p><strong>- </strong> Gọi hàm <strong>exit</strong></p>
+        <p><strong>- </strong> Return từ Thread cuối cùng của Process</p>
+        <p><strong>- </strong> Gọi hàm pthread_exit trong Thread cuối cùng của Process</p>
+    </div>
+    <p>3 Trường hợp abnormal có thể xảy ra khiến process bị terminate:</p>
+    <div class="space-40">
+        <p><strong>- </strong> Gọi hàm <strong>abort</strong></p>
+        <p><strong>- </strong> Nhận termination signal</p>
+        <p><strong>- </strong> Reponse của thread cuối cùng để hủy bỏ request</p>
+    </div>
+</div>
+<h3>What is Process Control Block ?</h3>
+<div class="space-40">
+    <p>Khi mỗi process được tạo ra, hệ điều hành sẽ gán cho process đó một <strong>PID</strong> để định danh để tiện cho
+        việc theo dõi cũng như quản lý các process. Và để quản lý được tất cả các process đã được tạo ra, hệ điều hành
+        cần
+        lưu trữ PID và những thông số khác để quản lý process và đó là lý do Process Control Block ra đời.</p>
+
+    <p><strong>Process Control Block</strong> sẽ lưu trữ <i>process state</i>, <i>program counter</i>, <i>stack
+            pointer</i>,
+        <i>trạng thái của những file được mở</i>, <i>scheduling algorithms</i>, ...</p>
+
+    <div class="space-40 text-center">
+        <img width="25%" src="/assets/imgs/process-control-block.jpg">
+    </div>
+
+    <p><strong>Stack Pointer :</strong> Được dùng để lưu lại các trạng thái khi Process chuyển từ trạng thái này sang
+        trạng
+        thái khác.</p>
+    <p><strong>Process State :</strong> Được dùng để lưu trạng thái hiện tại của Process</p>
+    <p><strong>Process ID :</strong> Chính là PID được cấp cho mỗi Process khi nó được khởi tạo</p>
+    <p><strong>Program Counter :</strong> Nơi lưu trữ địa chỉ vùng nhớ của đoạn code được thực thi tiếp theo.</p>
+    <p><strong>Register (CPU Register) :</strong> Là các thanh ghi CPU bao gồm accumulator, base, registers và general
+        purpose registers.</p>
+    <p><strong>Memory limits :</strong> Nơi chứa những thông tin về bộ nhớ được sử dụng bởi hệ điều hành cho Process đó.
+    </p>
+    <p><strong>Open files list :</strong> Thông tin về những file được mở bởi code trong Process hoặc được hệ điều hành
+        mở
+        cho chính Process đó
+    </p>
+    <p><strong>Miscellaneous accounting and status data :</strong> Nơi cho biết về số lượng CPU (core) được sử dụng,
+        time
+        constraints (hạn chế thời gian), ...
+    </p>
+</div>
+
+<h3>Process Communication</h3>
+<div class="space-40">
+    <p>Có 2 dạng Process là <strong>Independent Process</strong> và <strong>Co-operating Process</strong>.</p>
+    <p><strong>Independent Process</strong> không thể bị can thiệp bởi các process khác khi đang chạy.</p>
+</div>
+
+<h3>What is Thread ?</h3>
+<div class="space-40">
+    <p>Thread chính là một phân đoạn (segment) của một Process. Điều này có nghĩa là một Process có thể có nhiều Thread.
+    </p>
+    <p>Một Thread có 3 trạng thái: <i>Running</i>, <i>Ready</i> và <i>Blocked</i></p>
+    <div class="text-center">
+        <img src="/assets/imgs/process-and-thread.png">
+    </div>
+</div>
+
+<h3>Compare Process and Thread</h3>
+<div class="space-40">
+    <p>Process luôn chiếm nhiều resource (vùng nhớ, CPU, ...) hơn Thread. Do đó thời gian create, terminate hay switch
+        context của một Thread sẽ ít hơn so với Process.</p>
+    <p>Một Process sẽ không chia sẽ vùng nhớ với các Process khác. Nhưng Thread thì ngược lại, Vì Thread sử dụng chung
+        vùng nhớ của Process nên tất cả Thread chạy trong một Process sẽ chia sẻ chung vùng nhớ của Process đó.</p>
+    <p>Khi một Process bị block, những Process khác cũng không được thực thi. Nhưng đối với Thread, những Thread khác
+        vẫn có thể chạy bình thường khi có một Thread bị block.</p>
+</div>

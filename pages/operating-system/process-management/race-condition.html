@@ -1,0 +1,24 @@
+<h3>What is Race Condition ?</h3>
+<div class="space-40">
+    <p>
+        Race condition là một tình huống xảy ra khi nhiều process/thread truy cập và ghi đè vào shared resource
+        và kết quả cuối cùng phụ thuộc vào thứ tự thực thi của các process/thread.
+    </p>
+    <p>
+        Tưởng tượng rằng vợ bạn hứa sẽ cho bạn tiền đi nhậu nếu bạn hết tiền. Nhưng trước đó bạn đã ứng trước lương.
+        Vì bạn không biết chính xác thời điểm nào vợ bạn sẽ kiểm tra tài khoản và thời điểm nào thì tiền lương sẽ được chuyển nên sẽ có 2 trường hợp xảy ra
+    </p>
+    <div class="space-40">
+        <p><strong>Lương được chuyển trước</strong>: Lúc này vợ bạn sẽ thấy bạn còn tiền và không cho tiền bạn nữa</p>
+        <p><strong>Lương được chuyển sau</strong>: Vợ bạn sẽ cho bạn tiền</p>
+    </div>
+    <p>
+        Việc cho tiền và nhận lương như 2 thread/process và tài khoản là shared resource.
+        Thứ tự thực hiện của 2 việc này đã ảnh hưởng đến kết quả cuối cùng.
+    </p>
+    <p>
+        Trong ví dụ trên, chúng ta không biết được việc nào sẽ được thực hiện trước. <br>
+        Trong máy tính cũng vậy, ta không thể đoán được process hay thread nào sẽ được chạy trước. 
+        Chúng ta chỉ có thể biết rằng việc nào nên được thực hiện trước.
+    </p>
+</div>
