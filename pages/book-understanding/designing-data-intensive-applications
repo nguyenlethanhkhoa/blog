@@ -1,0 +1,50 @@
+1. Foundation of data systems
+    1.1. Reliability, Scalability, Maintainability
+
+        - The problems are the amount of data, the complexity of data, and the speed at which it is changing
+
+        - Data system (Data intensive system) operations:
+            + Store data (databases)
+            + Remember the result of an expensive operation, to speed up reads (caches)
+            + Search by keyword or filter in various ways (search indexes)
+            + Send a message to another process, to be handled asynchronously (stream processing)
+            + Periodically crunch a large amount of accumulated data (batch processing)
+
+        - Many applications have such demanding or wide-ranging requirements that a single data tool can no longer meet all of needs => Difference data tools (components) are combined together using application code to handle the job (Figure 1-1)
+
+        - Dependencies of data system designing:
+            + Skils and experience of people involved
+            + Legacy system dependencies
+            + Time for delivery
+            + Organization’s tolerance of different kinds of risk
+            + Regulatory constraints
+
+        - Reliability: A Fault-tolerant System
+            + We have 2 approaches to increase fault tolerance of system:
+                . Increase the rate of faults by triggering them deliberately (The Netflix Chaos Monkey is an example of this approach) => This approach is usually used to handle faults which can be cured
+                . Prevent the faults (security faults, ...) => This approach is used to handle faults which can be cured (because no curse exists)
+
+            + Faults that can be cured:
+                . Hardware Faults:
+                    - Hard disks have mean time to failure (MTTF) of about 10 to 50 years.
+                    
+                
+                . Software Faults:
+
+                . Human Errors:
+
+
+
+        - Scalability:
+
+        - Maintainability:
+
+
+
+
+
+    1.2. Data Models and Query Languages
+
+    1.3. Storage and Retrieval
+
+    1.4. Encoding and Revolution
