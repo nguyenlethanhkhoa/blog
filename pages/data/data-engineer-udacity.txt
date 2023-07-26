@@ -1,0 +1,31 @@
+Relational Data Models
+    - Online Analytical Processing (OLAP) vs Online Transactional Processing (OLTP)
+        + OLAP
+            . Databases optimized for these workloads allow for complex analytical and ad hoc queries, including aggregations. These type of databases are optimized for reads.
+        
+        + OLTP:
+            . Databases optimized for these workloads allow for less complex queries in large volume. The types of queries for these databases are read, insert, update, and delete.
+
+    - Data Modeling
+        - Normalization
+            + Normalization is about trying to increase data integrity by reducing the number of copies of the data. Data that needs to be added or updated will be done in as few places as possible.
+            + Normal Form (NF)
+                . First Normal Form (1NF)
+                . Second Normal Form (2NF)
+                . Third Normal Form (3NF)
+    
+        - Denormalization
+            + Denormalization is a process of trying to improve the read performance of a database at the expense of losing some write performance by adding redundant copies of data
+
+
+Data Warehouse Model:
+    - Fact Table
+        + Fact Table consists of the measurements, metricts or facts of a business process.
+
+    - Dimension Table
+        + Each Dimension Table has at least one or more Fact Tables
+        + Dimension Tables are all the other pieces of information that are not included in the fact table such as people, products, places and time.
+
+    - Star Schema
+    
+    - Snowflake Schema

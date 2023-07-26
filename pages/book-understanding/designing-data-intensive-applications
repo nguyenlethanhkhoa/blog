@@ -27,15 +27,25 @@
             + Faults that can be cured:
                 . Hardware Faults:
                     - Hard disks have mean time to failure (MTTF) of about 10 to 50 years.
-                    
+                    - Hardware faults are isolated faults. Only one or many disks and/or rams could be broken at the same time, not all of them.
                 
                 . Software Faults:
+                    - Software faults are systematic error (the fault is not isolated between each part). The faults are usually correlated across nodes 
 
                 . Human Errors:
 
 
-
         - Scalability:
+            + Describe the Load
+                . Describe Load by finding key load parameters base on the system architecture.
+            + Measure Performance Metrics
+                . Find the performance index (how the system effected when the LOAD PARAMETERS increased) such as THROUGHPUT in batch processing system, RESPONSE TIME in online system.
+                . Percentiles are often used in service level objectives (SLOs) and service level agreements (SLAs), contracts that define the expected
+                . tail latency amplification in microservices
+                . Can use FORWARD DECAY, T-DIGEST, HDRHISTOGRAM, ... algorithms to calculate a good approximation of percentiles at minimal CPU and memory cost.
+            + Coping with Load
+                . Shared-nothing Architecture: Distributing load across multiple machines
+                . 
 
         - Maintainability:
 
